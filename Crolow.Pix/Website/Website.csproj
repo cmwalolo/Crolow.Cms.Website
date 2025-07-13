@@ -1,0 +1,225 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="app_plugins\CrolowAI\**" />
+    <Compile Remove="uSync\**" />
+    <Content Remove="app_plugins\CrolowAI\**" />
+    <Content Remove="uSync\**" />
+    <EmbeddedResource Remove="app_plugins\CrolowAI\**" />
+    <EmbeddedResource Remove="uSync\**" />
+    <None Remove="app_plugins\CrolowAI\**" />
+    <None Remove="uSync\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="C:\Users\llequ\.nuget\packages\umbraco.crolow.openai\1.0.0\contentFiles\any\net8.0\App_Plugins\CrolowAI\js\CrolowAI.ContentApp.Controller.js" />
+    <Content Remove="C:\Users\llequ\.nuget\packages\umbraco.crolow.openai\1.0.0\contentFiles\any\net8.0\App_Plugins\CrolowAI\js\CrolowAI.Controller.js" />
+    <Content Remove="C:\Users\llequ\.nuget\packages\umbraco.crolow.openai\1.0.0\contentFiles\any\net8.0\App_Plugins\CrolowAI\js\CrolowAI.Resources.js" />
+    <Content Remove="C:\Users\llequ\.nuget\packages\umbraco.crolow.openai\1.0.0\contentFiles\any\net8.0\App_Plugins\CrolowAI\Lang\en-US.xml" />
+    <Content Remove="C:\Users\llequ\.nuget\packages\umbraco.crolow.openai\1.0.0\contentFiles\any\net8.0\App_Plugins\CrolowAI\Lang\fr.xml" />
+    <Content Remove="C:\Users\llequ\.nuget\packages\umbraco.crolow.openai\1.0.0\contentFiles\any\net8.0\App_Plugins\CrolowAI\Views\AIContentApp.html" />
+    <Content Remove="C:\Users\llequ\.nuget\packages\umbraco.crolow.openai\1.0.0\contentFiles\any\net8.0\App_Plugins\CrolowAI\Views\AIDashboard.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Plugins\Cards\js\view.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="app_plugins\CrolowAI\css\crolowai.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="app_plugins\CrolowAI\js\CrolowAI.ContentApp.Controller.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="app_plugins\CrolowAI\js\CrolowAI.Controller.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="app_plugins\CrolowAI\js\CrolowAI.Resources.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="app_plugins\CrolowAI\Lang\en.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="app_plugins\CrolowAI\Lang\fr.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="app_plugins\CrolowAI\Views\AIContentApp.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="app_plugins\CrolowAI\Views\AIDashboard.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="app_plugins\crolowform\js\CrolowForm.Controller.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="app_plugins\crolowform\js\CrolowForm.Resources.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Plugins\CrolowForm\Lang\en.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Plugins\CrolowForm\Lang\fr.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Plugins\CrolowForm\Views\List.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Plugins\UmbracoBlockGrid\BlockViews\callToAction.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Plugins\UmbracoBlockGrid\BlockViews\card.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Plugins\UmbracoBlockGrid\BlockViews\cards - Copy.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Plugins\UmbracoBlockGrid\BlockViews\cards.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Plugins\UmbracoBlockGrid\BlockViews\columnSections.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Plugins\UmbracoBlockGrid\BlockViews\GridForm.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Plugins\UmbracoBlockGrid\BlockViews\headline.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Plugins\UmbracoBlockGrid\BlockViews\hero.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Plugins\UmbracoBlockGrid\BlockViews\image.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Plugins\UmbracoBlockGrid\BlockViews\inspiration.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Plugins\UmbracoBlockGrid\BlockViews\oneColumnSection.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Plugins\UmbracoBlockGrid\BlockViews\richText.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Plugins\UmbracoBlockGrid\BlockViews\treeColumnSection.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Plugins\UmbracoBlockGrid\BlockViews\twoColumnSection.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+    <PackageReference Include="Crolow.OpenAI" Version="1.0.0-alpha1" />
+    <PackageReference Include="Crolow.OpenAi.Umbraco" Version="1.0.0-alpha1" />
+    <PackageReference Include="Stripe.net" Version="43.16.0-beta.1" />
+    <PackageReference Include="TagManager" Version="1.0.4" />
+    <PackageReference Include="Umbraco.Cms" Version="13.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Opt-in to app-local ICU to ensure consistent globalization APIs across different platforms -->
+    <PackageReference Include="Microsoft.ICU.ICU4C.Runtime" Version="72.1.0.3" />
+    <PackageReference Include="Umbraco.Cms.Core" Version="13.1.1" />
+    <PackageReference Include="uSync" Version="13.1.0" />
+    <PackageReference Include="uSync.Community.Contrib" Version="13.1.0" />
+    <PackageReference Include="uSync.Core" Version="13.1.0" />
+    <PackageReference Include="uSync.Exporter" Version="13.1.0" />
+    <ProjectReference Include="..\Crolow.Cms.Core\Crolow.Cms.Core.csproj" />
+	<RuntimeHostConfigurationOption Include="System.Globalization.AppLocalIcu" Value="72.1.0.3" Condition="$(RuntimeIdentifier.StartsWith('linux')) or $(RuntimeIdentifier.StartsWith('win')) or ('$(RuntimeIdentifier)' == '' and !$([MSBuild]::IsOSPlatform('osx')))" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\Views\Grids\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="App_Plugins\Cards\js\MultipleCards.Controller.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Plugins\Cards\package.manifest">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="App_Plugins\UmbracoBlockGrid\package.manifest">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Views\Shared\Components\Breadcrumb\default.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Shared\Components\CardItem\default.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Shared\Components\Cards\default.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Shared\Components\Cards\slicker.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Shared\Components\GridCards\carousel.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Shared\Components\GridCustomComponent\slickerMedia.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Shared\Components\GridLinks\default.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Shared\Components\GridLogin\default.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Shared\Components\GridRegistration\default.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Shared\Components\Navigation\default.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Themes\Crolow\Components\Navigation\default.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <PropertyGroup>
+    <!-- Razor files are needed for the backoffice to work correctly -->
+    <CopyRazorGenerateFilesToPublishDirectory>true</CopyRazorGenerateFilesToPublishDirectory>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <!-- Remove RazorCompileOnBuild and RazorCompileOnPublish when not using ModelsMode InMemoryAuto -->
+    <RazorCompileOnBuild>false</RazorCompileOnBuild>
+    <RazorCompileOnPublish>false</RazorCompileOnPublish>
+    <RunAnalyzersDuringBuild>False</RunAnalyzersDuringBuild>
+    <RunAnalyzersDuringLiveAnalysis>False</RunAnalyzersDuringLiveAnalysis>
+    <EnableNETAnalyzers>False</EnableNETAnalyzers>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Views\Shared\Components\Footer\default.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Views\Shared\Components\Footer\default.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Shared\Components\GridForm\default.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Views\Shared\Components\GridForm\default.cshtml" />
+  </ItemGroup>
+  
+</Project>

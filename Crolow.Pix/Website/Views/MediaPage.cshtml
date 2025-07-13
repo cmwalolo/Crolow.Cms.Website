@@ -1,0 +1,88 @@
+﻿@using System.Web
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@using Crolow.Cms.Core.Models.ViewModel.Media;
+@using ContentModels = Crolow.Cms.Core.Models.Umbraco;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.MediaPage>
+
+@{
+    Layout = "MasterTemplate.cshtml";
+    var imgUrl = Model.Image.Url();
+    var extra = (Crolow.Cms.Core.Models.ViewModel.Media.MediaPageModel)ViewData["Extra"];
+}
+
+<section class="container">
+    @await Component.InvokeAsync("breadcrumb", Umbraco.AssignedContentItem)
+    <div class="row">
+        <div class="col-lg-8">
+            <img src="@imgUrl" class="img-fluid" style="width:100%">
+            <div>
+                <div style="text-align:center">
+                    <a class="btn" href="@extra.PreviousUrl" class="previous">&laquo; Précedent</a>
+                    <a class="btn" href="@extra.NextUrl" class="next">Suivant &raquo;</a>
+                </div>
+            </div>
+            @await Html.GetBlockGridHtmlAsync(Model.Content)
+        </div>
+        <div class="col-lg-4">
+            <h1>@Model.Name</h1>
+            <h3>@Model.Caption</h3>
+            <div>@Model.Description</div>
+            <div>
+                <div style="text-align:center">
+                    <a class="btn p-2" target="_blank" href="https://www.facebook.com/sharer.php?app_id=923941309010169&amp;sdk=joey&amp;u=@Umbraco.AssignedContentItem.Url(mode:UrlMode.Absolute)&amp;display=popup">
+                        <span style="font-size: 2em" class="bi-facebook" aria-hidden="true"></span>
+                    </a>
+                    @{
+                        var url = Umbraco.AssignedContentItem.Url(mode: UrlMode.Absolute);
+                        var text = HttpUtility.UrlEncode(Model.Caption.ToString());
+                    }
+                    <a class="btn p-2" target="_blank" href="https://twitter.com/intent/post?url=@url&text=@text&sdk=joey&amp;">
+                        <span style="font-size: 2em" class="bi-twitter-x" aria-hidden="true"></span>
+                    </a>
+                </div>
+            </div>
+
+            <p class="small">@Model.Location - @Model.Date.ToString("dd-MM-yyyy")</p>
+            <div class="mb-3">
+                @foreach (var tag in extra.Tags)
+                {
+                    <span class="m-1 btn btn-primary badge">@tag</span>
+                }
+            </div>
+            <div class="mb-3">
+                @{
+                    var url1 = Model.SaleUrl.Replace("https://fineartamerica.com/", "https://crolow.pixels.com/");
+                    var url2 = Model.SaleUrl.Replace("https://fineartamerica.com/", "https://licensing.pixels.com/");
+                }
+
+                <table>
+                    <tr>
+                        <td style="padding-right:10px">@Umbraco.GetDictionaryValue("Crolow.OrderLabel")</td>
+                        <td nowrap="nowrap"><a style="width:100%" href="@url1" class="btn btn-light">@Umbraco.GetDictionaryValue("Crolow.Order")&nbsp;<span class="bi-basket-fill bi-large" aria-hidden="true"></span></a></td>
+                    </tr>
+                    <tr>
+                        <td style="padding-right:10px">@Umbraco.GetDictionaryValue("Crolow.BuyLabel")</td>
+                        <td nowrap="nowrap"><a style="width:100%" href="@url2" class="btn btn-light">@Umbraco.GetDictionaryValue("Crolow.Buy")&nbsp;<span class="bi-basket-fill bi-large" aria-hidden="true"></span></a></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="d-block col-12">
+        @await Component.InvokeAsync("BlogComment", @Umbraco.AssignedContentItem.Id)
+    </div>
+</section>
+
+<script type="text/javascript">
+    function loadDocument() {
+        basket = new BasketManager();;
+    };
+    document.onload = loadDocument();
+
+    function showProduct() {
+        $('#productList').children().hide();
+        var x = document.getElementById("productSelect").value;
+        $('#' + x).show();
+    }
+</script>

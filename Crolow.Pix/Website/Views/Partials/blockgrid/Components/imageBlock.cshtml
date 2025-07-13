@@ -1,0 +1,13 @@
+﻿@using Crolow.Cms.Core.Models.Umbraco;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem<ImageBlock>>
+@{
+    var image = Model.Content.Image;
+    if (image is not null)
+    {
+        <img class="img-fluid" src="@image.GetCropUrl(width:1920)" title="@image.Name" alt="@image.Name" />
+    }
+    else
+    {
+        <p>Missing image</p>
+    }
+}

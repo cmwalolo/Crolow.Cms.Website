@@ -1,0 +1,45 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="~/css/crolow.css" rel="stylesheet" />
+    <link href="~/css/myblockgridlayout.css" rel="stylesheet" />
+    <script src="~/js/crolow.js"></script>
+    <script src="~/js/basketmanager.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+            integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script src="~/js/slicker.js"></script>
+
+    @await Component.InvokeAsync("Seo", Model)
+
+    @RenderSection("Style", false)
+
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9VQ01DQRN9"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-9VQ01DQRN9');
+</script>
+<body>
+
+    @await Html.PartialAsync("Generic/Header")
+
+    @RenderBody()
+
+    @await Html.PartialAsync("Generic/Footer")
+
+    @RenderSection("Script", false)
+</body>
+</html>

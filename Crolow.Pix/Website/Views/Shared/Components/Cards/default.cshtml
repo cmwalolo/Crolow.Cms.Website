@@ -1,0 +1,29 @@
+﻿@using Crolow.Cms.Core.Models.ViewModel.Cards;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<CardsModel>
+
+@if (Model != null)
+{
+    if (!string.IsNullOrEmpty(Model.Title))
+    {
+        <h2>@(Model.Title)</h2>
+    }
+    if (!string.IsNullOrEmpty(Model.SubTitle))
+    {
+        <p>@Model.SubTitle</p>
+    }
+    @Model.Body
+
+    <div class="row">
+        @{
+            var x = 12/Model.Items.Count;
+
+            foreach(var card in Model.Items)
+            {
+                <div class="col-md-@x">
+                        @await Component.InvokeAsync("CardItem", card)
+                </div>
+            }
+        }
+    </div>
+
+}

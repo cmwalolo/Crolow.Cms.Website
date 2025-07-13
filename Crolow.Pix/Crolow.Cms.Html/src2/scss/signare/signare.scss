@@ -1,0 +1,87 @@
+// Custom.scss
+// Option A: Include all of Bootstrap
+@import "../components/variables.scss";
+@import "signare-variables.scss";
+@import "node_modules/bootstrap/scss/bootstrap";
+@import "../components/common.scss";
+@import "_carousel.scss";
+
+
+header .card-header {
+    background-color: $red;
+}
+
+.card {
+    background-color: #4E5D6230;
+    border: 1px solid #4E5D6280;
+
+    .card-header {
+        border-bottom: 5px solid $orange-signare;
+    }
+}
+
+
+.substore {
+    .title {
+        background-color: rgba($red-signare, 0.7);
+        border-right: 5px solid $orange-signare;
+
+        h3 {
+            font-size: 1.2rem;
+
+            @media screen and (max-width: 767px) {
+                font-size: 1rem;
+            }
+        }
+
+        dl {
+            /* Extra small devices (phones, up to 480px) */
+            @media screen and (max-width: 767px) {
+                font-size: 1rem;
+            }
+            /* Small devices (tablets, 768px and up) */
+            @media (min-width: 768px) and (max-width: 991px) {
+            }
+        }
+    }
+}
+
+
+
+footer {
+    h1 {
+        font-size: 1.5rem;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
+
+    a {
+        font-size: 1.3rem;
+        color: white;
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: $orange-signare;
+}
+
+h1, h2 {
+    color: $orange-signare;
+    background-color:rgba($red-signare, 0.15);
+    text-align: center;
+    align-content: center;
+    vertical-align: middle;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-bottom: 5px solid $orange-signare;
+}
+
+
+
+.productLandingPage {
+    .card-footer {
+        border-bottom: 5px solid $orange-signare;
+        background-color: rgba($red-signare, 0.3);
+        bottom: -15px;
+    }
+}

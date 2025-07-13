@@ -1,0 +1,27 @@
+{
+  "Deploy": {
+    "Project": {
+      "Name": "crolow",
+      "Alias": "crolow",
+      "Id": "3430c960-d60b-4f3a-b84b-30b6aac101c6",
+      "TrialExpireDate": "2024-03-07T08:02:20.0000000",
+      "Workspaces": [
+        {
+          "Id": "9193d653-5950-456c-b1d6-32809c390ad4",
+          "Name": "Live",
+          "Type": "live",
+          "Url": "https://crolow.euwest01.umbraco.io"
+        }
+      ]
+    },
+    "Settings": {
+      "ApiKey": "4F68385BF76B21DB03FFF6F0A19100E779EF25DF"
+    }
+  },
+  "Identity": {
+    "ClientId": "0297c0f6-83ad-4481-9ae2-07a3f5475333",
+    "ClientSecret": "Q5~T526ixOHlj47lg7Mu7_.zN1fK.7ua.9",
+    "EnvironmentId": "9193d653-5950-456c-b1d6-32809c390ad4",
+    "LocalLoginRedirectUri": "https://redirect.identity.umbraco.com"
+  }
+}

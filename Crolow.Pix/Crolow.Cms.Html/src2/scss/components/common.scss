@@ -1,0 +1,17 @@
+﻿
+
+header {
+    margin-top: 55px;
+}
+
+
+@media (max-width: 768px) {
+    body {
+        font-size: 0.90rem;
+    }
+}
+
+@import "decorators.scss";
+@import "carousel.scss";
+@import "card.scss";
+@import "portfolio.scss";

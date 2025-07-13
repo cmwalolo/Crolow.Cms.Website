@@ -1,0 +1,18 @@
+﻿{
+  "dashboards": [
+    {
+      "alias": "crolowFormDashboard",
+      "view": "/App_Plugins/CrolowForm/Views/List.html",
+      "sections": [ "content" ],
+      "weight": -10,
+      "access": [
+        { "grant": "admin" }
+      ]
+    }
+  ],
+  "javascript": [
+    "/App_Plugins/CrolowForm/js/CrolowForm.Controller.js",
+    "/App_Plugins/CrolowForm/js/CrolowForm.Resources.js"
+  ],
+  "bundleOptions": "None"
+}

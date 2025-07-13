@@ -1,0 +1,49 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<RunAnalyzersDuringBuild>False</RunAnalyzersDuringBuild>
+		<RunAnalyzersDuringLiveAnalysis>False</RunAnalyzersDuringLiveAnalysis>
+		<EnableNETAnalyzers>False</EnableNETAnalyzers>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<WarningLevel>1</WarningLevel>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<WarningLevel>1</WarningLevel>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Remove="Controllers\Sample.cs" />
+		<Compile Remove="Startup\Components\SwaggerCompontent.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Content Include="Controllers\Sample.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include="Controllers\Api\CrolowAi\" />
+		<Folder Include="Controllers\Api\FormsManagement\" />
+		<Folder Include="Models\Umbraco\" />
+		<Folder Include="Startup\Handlers\" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+		<None Include="Startup\Components\SwaggerCompontent.cs" />
+		<PackageReference Include="AutoMapper" Version="12.0.1" />
+		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+		<PackageReference Include="Stripe.net" Version="43.16.0-beta.1" />
+		<PackageReference Include="Umbraco.Cms.Core" Version="13.1.1" />
+		<PackageReference Include="Umbraco.Cms.Infrastructure" Version="13.1.1" />
+		<PackageReference Include="Umbraco.Cms.Persistence.Sqlite" Version="13.1.1" />
+		<PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="13.1.1" />
+		<PackageReference Include="Umbraco.Cms.Web.Website" Version="13.1.1" />
+	</ItemGroup>
+
+</Project>

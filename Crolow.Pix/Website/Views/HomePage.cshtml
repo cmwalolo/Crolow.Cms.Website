@@ -1,0 +1,6 @@
+﻿@using Crolow.Cms.Core.Models.Umbraco
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<HomePage>
+@{
+	Layout = "MasterTemplate.cshtml";
+}
+@await Html.GetBlockGridHtmlAsync(Model.Content)

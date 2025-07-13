@@ -1,0 +1,74 @@
+﻿
+<div class="body umb-dashboard-grid  p-2 crolowForm-dashboard" ng-controller="CrolowFormController as vm">
+    <h1><localize key="cfApproval">Crolow Forms Approval</localize></h1>
+
+    <div class="row">
+        <div class="column span6 form-group">
+            <label class="mb-2" for="message">Applications</label>
+            <select id="role" ng-model="vm.currentApplication">
+                <option ng-selected="app == vm.currentApplication"
+                        ng-repeat="app in vm.applications"
+                        ng-value="app">
+                    {{app}}
+                </option>
+            </select>
+        </div>
+
+        <div class="column span6 form-group">
+            <label class="mb-2" for="message">Statuses</label>
+            <select id="role" ng-model="vm.currentStatus">
+                <option ng-selected="status.id == vm.currentStatus"
+                        ng-repeat="status in vm.statuses"
+                        ng-value="status.id">
+                    {{status.value}}
+                </option>
+            </select>
+        </div>
+
+
+        <div class="column span6 form-group">
+            <button type="button" ng-click="vm.reset()">Refresh</button>
+        </div>
+    </div>
+
+    <div class="col-12 pt-5">
+        <h2>List of entries</h2>
+
+        <style>
+            .thisTable td {
+                padding: 5px;
+                border-bottom: solid 1px;
+                vertical-align: top;
+            }
+
+            .thisTable th {
+                padding: 5px;
+                border-bottom: solid 1px;
+                vertical-align: top;
+            }
+        </style>
+        <table class="thisTable" style="background-color: var(--bs-body-bg)">
+            <tr>
+                <th>Date</th>
+                <th>Application / Page</th>
+                <th>Name / Email</th>
+                <th>Message</th>
+                <th>Status</th>
+            </tr>
+            <tr ng-repeat="item in vm.data">
+                <td>{{item.Date.substr(0,10)}}</td>
+                <td>{{item.Application}}<br />{{item.BlogPostUmbracoId}}&nbsp;{{item.PageName}}</td>
+                <td>{{item.Name}}<br />{{item.Email}}</td>
+                <td>{{item.Message}}</td>
+                <td>{{item.Status}} - {{item.StatusText}}</td>
+                <td>
+                    <button ng-click="vm.changeStatus(0, item)">Awaiting</button>
+                    <button ng-click="vm.changeStatus(1, item)">In progress</button>
+                    <br /><button ng-click="vm.changeStatus(2, item)">Accepted</button>
+                    <button ng-click="vm.changeStatus(3, item)">Rejected</button>
+                    <button ng-click="vm.deleteComment(item)">Delete</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

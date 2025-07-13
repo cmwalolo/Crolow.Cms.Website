@@ -1,0 +1,101 @@
+﻿@using Crolow.Cms.Core.Models.ViewModel.Navigation;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<SeoModel>
+@{
+    @if (!string.IsNullOrEmpty(Model.PageTitle))
+    {
+        <title>@(Model.PageTitle)</title>
+    }
+
+    @if (!string.IsNullOrEmpty(Model.Canonical))
+    {
+        <link rel="canonical" href="@(Model.Canonical)">
+    }
+
+    @if (!string.IsNullOrEmpty(Model.MetaAuthor))
+    {
+        <meta name="author" content="@(Model.MetaAuthor)">
+    }
+
+    @if (!string.IsNullOrEmpty(Model.MetaDescription))
+    {
+        <meta name="description" content="@(Model.MetaDescription.StripHtml().StripNewLines())">
+    }
+
+    @if (Model.MetaKeywords != null && Model.MetaKeywords.Any())
+    {
+        var keywordsValue = string.Join(", ", Model.MetaKeywords);
+        <meta name="keywords" content="@keywordsValue">
+    }
+
+    @if (!string.IsNullOrEmpty(Model.MetaTagBlock))
+    {
+        @Html.Raw((Model.MetaTagBlock))
+    }
+
+    @if (!string.IsNullOrEmpty(Model.OGUrl))
+    {
+        <meta property="og:url" content="@(Model.OGUrl)">
+    }
+
+    @if (!string.IsNullOrEmpty(Model.OGType))
+    {
+        <meta property="og:type" content="@(Model.OGType)">
+    }
+
+    @if (!string.IsNullOrEmpty(Model.OGTitle))
+    {
+        <meta property="og:title" content="@(Model.OGTitle)">
+    }
+
+    @if (!string.IsNullOrEmpty(Model.OGDescription))
+    {
+        <meta property="og:description" content="@(Model.OGDescription.StripHtml().StripNewLines())">
+    }
+
+
+    @if (!string.IsNullOrEmpty(Model.OGImage))
+    {
+        <meta property="og:image" content="@Model.OGImage">
+    }
+
+    @if (!string.IsNullOrEmpty(Model.FBAppId))
+    {
+        <meta property="fb:app_id" content="@(Model.FBAppId)">
+    }
+
+    @if (!string.IsNullOrEmpty(Model.OGLocale))
+    {
+        <meta property="og:locale" content="@(Model.OGLocale)">
+    }
+
+    <!--Twitter Cards-->
+    @if (!string.IsNullOrEmpty(Model.TwitterCardType))
+    {
+        <meta name="twitter:card" content="@(Model.TwitterCardType))">
+    }
+
+    @if (!string.IsNullOrEmpty(Model.TwitterSite))
+    {
+        <meta name="twitter:site" content="@(Model.TwitterSite)">
+    }
+
+    @if (!string.IsNullOrEmpty(Model.TwitterTitle))
+    {
+        <meta name="twitter:title" content="@(Model.TwitterTitle)">
+    }
+
+    @if (!string.IsNullOrEmpty(Model.TwitterDescription))
+    {
+        <meta name="twitter:description" content="@(Model.TwitterDescription.StripHtml().StripNewLines())">
+    }
+
+    @if (!string.IsNullOrEmpty(Model.TwitterImage))
+    {
+        <meta Name="twitter:image" content="@Model.TwitterImage">
+    }
+
+    @if (!string.IsNullOrEmpty(Model.TwitterImageAlt))
+    {
+        <meta Name="twitter:image:alt" content="@(Model.TwitterImageAlt)">
+    }
+}

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scrabble Game</title>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        display: flex;
+        flex-direction: row;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    #rack {
+        align-self: center;
+        margin: 0 auto;
+
+        flex: 0 0 30%;
+        background-color: #f0f0f0;
+        overflow-y: auto;
+        padding: 10px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: row; /* Updated to horizontal */
+    }
+
+    #board {
+        align-self: center;
+        margin: 0 auto;
+
+        flex: 0 0 30%;
+        background-color: #f0f0f0;
+        overflow-y: auto;
+        padding: 10px;
+        box-sizing: border-box;
+        background-color: #eee;
+        border: 1px solid #ccc;
+        display: grid;
+        grid-template-columns: repeat(15, 40px);
+        grid-template-rows: repeat(15, 40px);
+        gap: 1px;
+        overflow: auto;
+        padding: 10px;
+    }
+
+    .tile {
+        width: 40px;
+        height: 40px;
+        border: 1px solid #ccc;
+        text-align: center;
+        line-height: 40px;
+    }
+
+    .double-word {
+        background-color: #f5c542; /* Light orange for double word score */
+    }
+
+    .triple-word {
+        background-color: #e74c3c; /* Red for triple word score */
+    }
+
+    .double-letter {
+        background-color: #85c1e9; /* Light blue for double letter score */
+    }
+
+    .triple-letter {
+        background-color: #3498db; /* Dark blue for triple letter score */
+    }
+
+    #rounds {
+        flex: 0 0 30%;
+        background-color: #f0f0f0;
+        overflow-y: auto;
+        padding: 10px;
+        box-sizing: border-box;
+        float: right;
+    }
+
+    #container {
+        width: 100%;
+        position: relative;
+    }
+
+    #left {
+      width: 70%;
+      text-align: center;
+      font: normal 16px Arial;
+      line-height: 50px;
+      color: white;
+      display:grid;
+    }
+
+    #container {
+        display: flex;
+    }
+
+    </style>
+</head>
+<body>
+
+  <div id="container">
+    <div id="left">
+        <div id="rack"></div>
+        <div id="board"></div>
+    </div>
+    <div id="rounds">
+        <h2>Rounds Played</h2>
+        <ul id="roundsList"></ul>
+    </div>
+  </div>
+
+  <script>
+    const boardState = [
+      ['TW', ' ', ' ', 'DL', ' ', ' ', ' ', 'TW', ' ', ' ', ' ', 'DL', ' ', ' ', 'TW'],
+      [' ', 'DW', ' ', ' ', ' ', 'TL', ' ', ' ', ' ', 'TL', ' ', ' ', ' ', 'DW', ' '],
+      [' ', ' ', 'DW', ' ', ' ', ' ', 'DL', ' ', 'DL', ' ', ' ', ' ', 'DW', ' ', ' '],
+      ['DL', ' ', ' ', 'DW', ' ', ' ', ' ', 'DL', ' ', ' ', ' ', 'DW', ' ', ' ', 'DL'],
+      [' ', ' ', ' ', ' ', 'DW', ' ', ' ', ' ', ' ', ' ', 'DW', ' ', ' ', ' ', ' '],
+      [' ', 'TL', ' ', ' ', ' ', 'TL', ' ', ' ', ' ', 'TL', ' ', ' ', ' ', 'TL', ' '],
+      [' ', ' ', 'DL', ' ', ' ', ' ', 'DL', ' ', 'DL', ' ', ' ', ' ', 'DL', ' ', ' '],
+      ['TW', ' ', ' ', 'DL', ' ', ' ', ' ', '★', ' ', ' ', ' ', 'DL', ' ', ' ', 'TW'],
+      [' ', ' ', 'DL', ' ', ' ', ' ', 'DL', ' ', 'DL', ' ', ' ', ' ', 'DL', ' ', ' '],
+      [' ', 'TL', ' ', ' ', ' ', 'TL', ' ', ' ', ' ', 'TL', ' ', ' ', ' ', 'TL', ' '],
+      [' ', ' ', ' ', ' ', 'DW', ' ', ' ', ' ', ' ', ' ', 'DW', ' ', ' ', ' ', ' '],
+      ['DL', ' ', ' ', 'DW', ' ', ' ', ' ', 'DL', ' ', ' ', ' ', 'DW', ' ', ' ', 'DL'],
+      [' ', ' ', 'DW', ' ', ' ', ' ', 'DL', ' ', 'DL', ' ', ' ', ' ', 'DW', ' ', ' '],
+      [' ', 'DW', ' ', ' ', ' ', 'TL', ' ', ' ', ' ', 'TL', ' ', ' ', ' ', 'DW', ' '],
+      ['TW', ' ', ' ', 'DL', ' ', ' ', ' ', 'TW', ' ', ' ', ' ', 'DL', ' ', ' ', 'TW'],
+    ];
+
+    function initializeBoard() {
+      const boardElement = document.getElementById('board');
+
+      for (let row = 0; row < 15; row++) {
+        for (let col = 0; col < 15; col++) {
+          const tileElement = document.createElement('div');
+          tileElement.className = 'tile';
+
+          if (boardState[row][col] === 'TW') tileElement.classList.add('triple-word');
+          else if (boardState[row][col] === 'DW') tileElement.classList.add('double-word');
+          else if (boardState[row][col] === 'TL') tileElement.classList.add('triple-letter');
+          else if (boardState[row][col] === 'DL') tileElement.classList.add('double-letter');
+
+          tileElement.textContent = boardState[row][col] === '★' ? '★' : '';
+          boardElement.appendChild(tileElement);
+        }
+      }
+    }
+
+    function initializeRack() {
+      const rackElement = document.getElementById('rack');
+      const initialRackTiles = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
+
+      initialRackTiles.forEach(tile => {
+        const tileElement = document.createElement('div');
+        tileElement.className = 'tile';
+        tileElement.textContent = tile;
+        rackElement.appendChild(tileElement);
+      });
+    }
+
+    function displayRounds(rounds) {
+      const roundsListElement = document.getElementById('roundsList');
+
+      rounds.forEach(round => {
+        const roundItem = document.createElement('li');
+        roundItem.textContent = round;
+        roundsListElement.appendChild(roundItem);
+      });
+    }
+
+    initializeBoard();
+    initializeRack();
+
+    const roundsPlayed = ['Round 1: CAT', 'Round 2: DOG', 'Round 3: FISH'];
+    displayRounds(roundsPlayed);
+  </script>
+</body>
+</html>

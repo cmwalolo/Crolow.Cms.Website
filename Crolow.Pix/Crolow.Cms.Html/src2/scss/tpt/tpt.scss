@@ -1,0 +1,7 @@
+// Custom.scss
+// Option A: Include all of Bootstrap
+@import "tpt-variables.scss";
+@import "node_modules/bootstrap/scss/bootstrap";
+@import "../components/common.scss";
+@import "_carousel.scss";
+

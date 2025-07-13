@@ -1,0 +1,27 @@
+
+<div ng-controller="MultipleCardsController">
+    <section ng-style="{'background-color': '#' + block.settingsData.backgroundColor.value}"
+             ng-attr-nobackgroundcolor="{{block.settingsData.backgroundColor.value === '' || undefined}}"
+             ng-attr-bright-contrast="{{block.settingsData.contrast.value === 'ffffff' || undefined}}"
+             ng-click="block.edit()" ng-focus="block.focus">
+
+        <H2 ng-bind-html="block.data.title"></H2>
+        <div class="row">
+            <div class="card col-md-{{12/Cards.length}}" ng-repeat="card in Cards">
+                {{mediaItem = (card.image[0].mediaKey | mediaItemResolver); ""}}
+                <div class="card-header"><h4>{{card.title}}}</h4></div>
+                <div class="card-media">
+                    <img class="card-img-top" draggable="false" ng-if="mediaItem !== null" ng-src="{{mediaItem.mediaLink}}?width=720" alt="{{mediaItem.name}}" />
+                </div>
+                <div class="card-body">
+                    <div class="card-text">
+                        <h5 ng-bind-html="card.subtitle"></h5>
+                        <div ng-bind-html="card.body.markup"></div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a ng-bind="link in card.links" href="{{link.url}}" class="btn btn-primary">{{link.name}}</a>
+                </div>
+            </div>
+    </section>
+</div>

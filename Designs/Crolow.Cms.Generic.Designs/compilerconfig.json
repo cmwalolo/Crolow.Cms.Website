@@ -1,0 +1,14 @@
+﻿[
+  {
+    "outputFile": "src/scss/styles.css",
+    "inputFile": "src/scss/styles.scss"
+  },
+  {
+    "outputFile": "src/umbSample/SCSS/main.css",
+    "inputFile": "src/umbSample/SCSS/index.scss"
+  },
+  {
+    "outputFile": "src/crolow/SCSS/index.css",
+    "inputFile": "src/crolow/SCSS/index.scss"
+  }
+]

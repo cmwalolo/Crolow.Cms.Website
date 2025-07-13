@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crolow.Cms.Generic.Models", "Crolow.Umbraco.Generic.Models\Crolow.Cms.Generic.Models.csproj", "{80F22371-4648-4F0E-8621-C5731641E4B2}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Crolow.Cms.Generic.Designs", "Crolow.Cms.Generic.Designs\", "{AB8140BE-5E15-4FAD-9029-ED3A664E8035}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.8.1"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_59236"
+		Debug.AspNetCompiler.PhysicalPath = "Crolow.Cms.Generic.Designs\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_59236\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_59236"
+		Release.AspNetCompiler.PhysicalPath = "Crolow.Cms.Generic.Designs\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_59236\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "59236"
+		SlnRelativePath = "Crolow.Cms.Generic.Designs\"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crolow.Cms.Generic.Web", "Crolow.Cms.Generic.Web\Crolow.Cms.Generic.Web.csproj", "{952A60CA-101C-458B-948B-DF0197EEFB68}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{80F22371-4648-4F0E-8621-C5731641E4B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80F22371-4648-4F0E-8621-C5731641E4B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80F22371-4648-4F0E-8621-C5731641E4B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80F22371-4648-4F0E-8621-C5731641E4B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB8140BE-5E15-4FAD-9029-ED3A664E8035}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB8140BE-5E15-4FAD-9029-ED3A664E8035}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB8140BE-5E15-4FAD-9029-ED3A664E8035}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB8140BE-5E15-4FAD-9029-ED3A664E8035}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{952A60CA-101C-458B-948B-DF0197EEFB68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{952A60CA-101C-458B-948B-DF0197EEFB68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{952A60CA-101C-458B-948B-DF0197EEFB68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{952A60CA-101C-458B-948B-DF0197EEFB68}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

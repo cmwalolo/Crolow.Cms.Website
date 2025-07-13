@@ -1,0 +1,46 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@using ContentModels = Crolow.Cms.Core.Models.Umbraco;
+
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.MediaCollectionLandingPage>
+@{
+    Layout = "MasterTemplate.cshtml";
+    var extra = (Crolow.Cms.Core.Models.ViewModel.Media.MediaCollectionLandingPageModel)ViewData["Extra"];
+}
+
+<section class="container">
+    @await Component.InvokeAsync("breadcrumb", Umbraco.AssignedContentItem)
+    <div class="row">
+        <div class="col-12">
+            <h1>@Model.Name</h1>
+        </div>
+    </div>
+</section>
+@await Html.GetBlockGridHtmlAsync(Model.Content)
+<section class="container">
+    @if (extra.Collections.Any())
+    {
+        <h2>Collections</h2>
+        <div class="row">
+            @foreach (var item in extra.Collections)
+            {
+                <div class="card col-md-6 col-lg-4">
+                    <h4 class="card-header">@(item.Name)</h4>
+                    @if (!string.IsNullOrEmpty(item.ImageUrl))
+                    {
+                        <div class="card-img">
+                            <a href="@item.Url">
+                            <img class="card-img-top" src="@item.ImageUrl" />
+                            </a>
+                        </div>
+                    }
+                    <div class="card-body">
+                        <div class="card-text">
+                            @Html.Raw(item.Summary)
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+
+</section>

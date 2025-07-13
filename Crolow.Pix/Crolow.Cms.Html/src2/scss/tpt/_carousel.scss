@@ -1,0 +1,38 @@
+﻿.carousel-item {
+    height: auto;
+    min-height: unset;
+
+    .carousel-footer {
+        border-bottom: 5px solid tpt-brown;
+        background-color: rgba($tpt-yellow,0.8);
+        color: $tpt-brown;
+        padding: 20px;
+        font-weight: 800;
+    }
+
+    .carousel-caption {
+        background-color: rgba($tpt-yellow,0.8);
+        color: $tpt-brown;
+        font-weight: 800;
+        bottom: auto;
+        top: 15px;
+        left: 40%;
+        right: 15px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+
+        h3 {
+            font-size: 1.25rem;
+        }
+    }
+}
+
+
+header .carousel-item {
+    .carousel-footer {
+        position: absolute;
+        bottom: 0px;
+        width: 100%;
+        margin: 0 !important;
+    }
+}

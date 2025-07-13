@@ -1,0 +1,89 @@
+'use strict'
+
+const path = require('path')
+const autoprefixer = require('autoprefixer')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+
+const isProduction = process.env.NODE_ENV == 'production';
+const stylesHandler = isProduction ? MiniCssExtractPlugin.loader : 'style-loader';
+
+module.exports = {
+    mode: 'development',
+    entry: './src/js/main.js',
+    output: {
+        filename: 'main.js',
+        path: path.resolve(__dirname, 'dist'),
+    },
+    devServer: {
+        static: path.resolve(__dirname, 'dist'),
+        port: 8080,
+        hot: true
+    },
+    plugins: [
+        new HtmlWebpackPlugin({ template: './src/index.html' }),
+        new MiniCssExtractPlugin({
+            filename: "css/[name].css",
+            chunkFilename: "[id].css"
+        }),
+    ],
+    module: {
+        rules: [
+            // CSS, PostCSS, and Sass
+            {
+                test: /\.(scss|css)$/,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    {
+                        loader: "css-loader",
+                        options: {
+                            importLoaders: 2,
+                            sourceMap: true,
+                            url: false,
+                        }
+                    },
+                    {
+                        loader: "postcss-loader",
+                        options: {
+                            postcssOptions: {
+                                plugins: [
+                                    "autoprefixer",
+                                ]
+                            }
+                        }
+                    },
+                    "sass-loader"
+                ],
+            },
+            {
+                test: /\.(wawa)$/,
+                //test: /\.(html)$/,
+                use: [
+                    {
+                        // Adds CSS to the DOM by injecting a `<style>` tag
+                        loader: 'style-loader'
+                    },
+                    {
+                        // Interprets `@import` and `url()` like `import/require()` and will resolve them
+                        loader: 'css-loader'
+                    },
+                    {
+                        // Loader for webpack to process CSS with PostCSS
+                        loader: 'postcss-loader',
+                        options: {
+                            postcssOptions: {
+                                plugins: [
+                                    autoprefixer
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        // Loads a SASS/SCSS file and compiles it to CSS
+                        loader: 'sass-loader'
+                    }
+                ]
+            }
+        ]
+    }
+}

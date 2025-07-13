@@ -1,0 +1,25 @@
+﻿@using Crolow.Cms.Core.Models.Umbraco
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<GridLinks>
+
+@if (Model != null)
+{
+    <div class="card">
+        @if (!string.IsNullOrEmpty(Model.Title))
+        {
+            <h4 class="card-header">@Model.Title</h4>
+        }
+        @if (Model.Links.Any())
+        {
+            <div class="card-body">
+                <ul class="list-unstyled">
+                    @foreach (var link in Model.Links)
+                    {
+                        <li>
+                            <a href="@link.Url" class="">@link.Name</a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        }
+    </div>
+}
