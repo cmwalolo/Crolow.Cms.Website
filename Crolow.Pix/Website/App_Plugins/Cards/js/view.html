@@ -1,4 +1,7 @@
 
+<script defer="defer" src="~/waaw/js/waaw.js"></script>
+
+
 <div ng-controller="MultipleCardsController">
     <section ng-style="{'background-color': '#' + block.settingsData.backgroundColor.value}"
              ng-attr-nobackgroundcolor="{{block.settingsData.backgroundColor.value === '' || undefined}}"
@@ -9,7 +12,7 @@
         <div class="row">
             <div class="card col-md-{{12/Cards.length}}" ng-repeat="card in Cards">
                 {{mediaItem = (card.image[0].mediaKey | mediaItemResolver); ""}}
-                <div class="card-header"><h4>{{card.title}}}</h4></div>
+                <div class="card-header"><h4>{{card.title}}</h4></div>
                 <div class="card-media">
                     <img class="card-img-top" draggable="false" ng-if="mediaItem !== null" ng-src="{{mediaItem.mediaLink}}?width=720" alt="{{mediaItem.name}}" />
                 </div>

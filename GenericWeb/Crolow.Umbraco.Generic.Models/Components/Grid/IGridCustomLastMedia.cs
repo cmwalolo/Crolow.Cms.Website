@@ -1,4 +1,4 @@
-﻿using Crolow.Cms.Core.Models.Umbraco;
+﻿using Crolow.Cms.Generic.Core.Models.Umbraco;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Crolow.Cms.Core.Components.Grid

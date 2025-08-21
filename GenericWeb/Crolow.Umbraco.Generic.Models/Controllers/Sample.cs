@@ -7,7 +7,7 @@ using Umbraco.Cms.Core.Web;
 
 namespace Umbraco.Cms.Infrastructure.Services.Implement
 {
-    public class CustomNewsArticleService : ICustomNewsArticleService
+    public class CustomNewsArticleService
     {
         private readonly IMediaService _mediaService;
         private readonly ILogger<CustomNewsArticleService> _logger;

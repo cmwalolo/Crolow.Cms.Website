@@ -37,10 +37,10 @@ namespace Crolow.Cms.Core.Models.Umbraco
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.Link> Links { get; }
 
-		/// <summary>Subtilte</summary>
+		/// <summary>Subtitle</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.1.1+cd47bdb")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		string Subtilte { get; }
+		string Subtitle { get; }
 
 		/// <summary>Title</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.1.1+cd47bdb")]
@@ -119,17 +119,17 @@ namespace Crolow.Cms.Core.Models.Umbraco
 		public static global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.Link> GetLinks(IGenericCard that, IPublishedValueFallback publishedValueFallback) => that.Value<global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.Link>>(publishedValueFallback, "links");
 
 		///<summary>
-		/// Subtilte
+		/// Subtitle
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.1.1+cd47bdb")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("subtilte")]
-		public virtual string Subtilte => GetSubtilte(this, _publishedValueFallback);
+		[ImplementPropertyType("subtitle")]
+		public virtual string Subtitle => GetSubtitle(this, _publishedValueFallback);
 
-		/// <summary>Static getter for Subtilte</summary>
+		/// <summary>Static getter for Subtitle</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.1.1+cd47bdb")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static string GetSubtilte(IGenericCard that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "subtilte");
+		public static string GetSubtitle(IGenericCard that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "subtitle");
 
 		///<summary>
 		/// Title

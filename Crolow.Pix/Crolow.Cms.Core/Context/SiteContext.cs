@@ -1,18 +1,11 @@
 ﻿using Crolow.Core.Models.Configuration;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.SignalR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Umbraco.Extensions;
 
 namespace Crolow.Cms.Core.Context
 {
     public class SiteContext
     {
-        public SiteSettingsModel SettingsModel { get; set;}
+        public SiteSettingsModel SettingsModel { get; set; }
 
         public static object _lock = new object();
 
@@ -20,7 +13,7 @@ namespace Crolow.Cms.Core.Context
         {
 
         }
-        
+
         public static SiteContext GetContext(HttpContext context)
         {
             if (!context.Items.ContainsKey("SiteContext"))
@@ -33,7 +26,7 @@ namespace Crolow.Cms.Core.Context
                     }
                 }
             }
-            return (SiteContext) context.Items["SiteContext"];
+            return (SiteContext)context.Items["SiteContext"];
         }
         public static SiteSettingsModel CurrentSiteSettingsModel(HttpContext context, SiteSettingsModel model = null)
         {
@@ -43,7 +36,7 @@ namespace Crolow.Cms.Core.Context
             {
                 siteContext.SettingsModel = model;
             }
-
+            context.Items["SiteContext"] = siteContext;
             return siteContext.SettingsModel;
 
         }

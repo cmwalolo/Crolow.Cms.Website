@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Html;
-using Umbraco.Cms.Core.Models;
+﻿using Umbraco.Cms.Core.Models;
 using Umbraco.Cms.Core.Strings;
 
 namespace Crolow.Cms.Core.Models.ViewModel.Cards

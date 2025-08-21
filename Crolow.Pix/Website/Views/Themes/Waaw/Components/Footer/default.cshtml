@@ -1,0 +1,7 @@
+﻿@using Crolow.Cms.Core.Models.Umbraco
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Footer>
+@{
+    <div class="p-3 container" style="background-color:rgb(39, 43, 48)">
+        @await Html.GetBlockGridHtmlAsync(Model.Content)
+    </div>
+}

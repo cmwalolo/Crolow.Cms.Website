@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using Crolow.Cms.Core.Models.Umbraco;
 using Crolow.Cms.Core.Models.ViewModel.Basket;
 using Crolow.Cms.Core.Models.ViewModel.Media;
+using Crolow.Cms.Generic.Core.Models.Umbraco;
 using Crolow.Core.Controllers.Pages;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewEngines;
@@ -34,7 +34,7 @@ namespace UmbracoProject.Controller
             var products = root.DescendantsOrSelf<Product>();
             item.Products = mapper.Map<List<CrolowProductModel>>(products);
 
-            var collection = CurrentPage.Parent<MediaCollectionPage>();
+           // var collection = CurrentPage.Parent<MediaCollectionPage>();
 
             this.ViewData["Extra"] = item;
             var children = CurrentPage.Parent.Children.OrderByDescending(p => p.Value<DateTime>("date")).ToList();

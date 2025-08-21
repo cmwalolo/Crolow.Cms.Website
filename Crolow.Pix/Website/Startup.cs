@@ -1,4 +1,5 @@
 using System.Globalization;
+using Umbraco.Community.BlockPreview.Extensions;
 
 namespace Website
 {
@@ -35,6 +36,7 @@ namespace Website
                 .AddBackOffice()
                 .AddWebsite()
                 .AddComposers()
+                .AddBlockPreviewOptions()
                 .Build();
         }
 

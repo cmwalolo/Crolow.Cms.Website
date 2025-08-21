@@ -1,7 +1,5 @@
 ﻿using AutoMapper;
-using Crolow.Cms.Core.Models.Umbraco;
-using Crolow.Cms.Core.Models.ViewModel.Navigation;
-using Crolow.Core.Controllers.Pages;
+using Crolow.Cms.Generic.Core.Models.Umbraco;
 using Microsoft.AspNetCore.Mvc;
 using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Cms.Core.Routing;

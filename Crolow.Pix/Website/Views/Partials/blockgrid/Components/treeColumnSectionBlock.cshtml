@@ -1,6 +1,7 @@
 ﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem<TwoColumnSectionBlock, SectionSettingsBlock>>
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 @using Crolow.Cms.Core.Models.Umbraco;
+@using Umbraco.Community.BlockPreview.Extensions
 
 @{
     var backgroundColor = Model.Settings.BackgroundColor;
@@ -12,5 +13,6 @@
     style="background-color: #@backgroundColor"
     @(noBackgroundColor ? "nobackgroundcolor" : null)
     @(hasBrightContrast ? "bright-contrast" : null)>
-    @await Html.GetBlockGridItemAreasHtmlAsync(Model)
+    @* @await Html.GetBlockGridItemAreasHtmlAsync(Model) *@
+    @await Html.GetPreviewBlockGridItemAreasHtmlAsync(Model)
 </section>

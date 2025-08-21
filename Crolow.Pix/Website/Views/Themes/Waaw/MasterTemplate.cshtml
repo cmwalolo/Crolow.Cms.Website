@@ -1,0 +1,93 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="~/waaw/css/waaw.css" rel="stylesheet" />
+    @* <link href="~/waaw/css/myblockgridlayout.css" rel="stylesheet" /> *@
+    <script defer="defer" src="~/waaw/js/waaw.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icon-css@4.1.7/css/flag-icons.min.css">
+@*     <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+            integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script src="~/js/slicker.js"></script>
+ *@
+    @await Component.InvokeAsync("Seo", Model)
+
+    @RenderSection("Style", false)
+
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9VQ01DQRN9"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-9VQ01DQRN9');
+</script>
+<body>
+    <div class="page-body">
+        <div class="page-layout">
+
+
+            <main class="content">
+                <div class="content-sidebar">
+                    @await Component.InvokeAsync("fixednavigation", new { content = Umbraco.AssignedContentItem, code = "main" })
+
+@*                     <nav>
+                        <button class="sidebar-icon" data-target="#navOverlay" aria-label="Menu">
+                            <i class="bi bi-house"></i>
+                        </button>
+                        <button class="sidebar-icon" data-target="#navOverlay" aria-label="Menu">
+                            <i class="bi bi-globe-europe-africa"></i>
+                        </button>
+
+                        <button class="sidebar-icon" data-target="#navOverlay" aria-label="Menu">
+                            <i class="bi bi-cart"></i>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                3
+                            </span>
+                        </button>
+                        <button class="sidebar-icon" data-target="#filtersOverlay" aria-label="Filters">
+                            <i class="bi bi-sliders"></i>
+                        </button>
+                    </nav>
+
+                    <div class="sidebar-overlay" id="navOverlay">
+                        <ul class="overlay-menu">
+                            <li class="menu-header"><button class="back-btn" data-target="#navSubProducts">&larr; Home</button></li>
+                            <li class="menu-item"><button data-target="#navSubProducts">Products</button></li>
+                            <li class="menu-item"><button data-target="#navSubAbout">About Us</button></li>
+                        </ul>
+                    </div> *@
+                </div>
+
+                <!-- Filters Overlay -->
+                <div class="sidebar-overlay" id="filtersOverlay">
+                    <div class="overlay-header">
+                        <button class="back-btn btn btn-sm btn-outline-secondary">&larr; Back</button>
+                    </div>
+                    <ul class="overlay-menu">
+                        <li><label><input type="checkbox"> Option 1</label></li>
+                        <li><label><input type="checkbox"> Option 2</label></li>
+                    </ul>
+                </div>
+
+                @RenderBody()
+            </main>
+
+            <footer class="footer">
+                Small footer text here
+            </footer>
+
+        </div>
+    </div>
+</body>
+</html>

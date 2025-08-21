@@ -24,8 +24,9 @@ namespace Crolow.Core.Controllers.Pages
 
         public override Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
         {
+
             SiteContext.CurrentSiteSettingsModel(context.HttpContext,
-                        GetSettings(this.UmbracoContext.Content.GetAtRoot().FirstOrDefault()));
+                        GetSettings(this.UmbracoContext.PublishedRequest?.PublishedContent?.Root()));
             return base.OnActionExecutionAsync(context, next);
         }
 

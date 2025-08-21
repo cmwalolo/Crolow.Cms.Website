@@ -27,6 +27,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<Folder Include="Components\Custom\" />
 		<Folder Include="Controllers\Api\CrolowAi\" />
 		<Folder Include="Controllers\Api\FormsManagement\" />
 		<Folder Include="Models\Umbraco\" />

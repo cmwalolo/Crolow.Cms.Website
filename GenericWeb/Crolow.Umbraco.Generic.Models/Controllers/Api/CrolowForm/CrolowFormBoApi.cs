@@ -4,13 +4,11 @@ using Crolow.Cms.Core.Models.ViewModel.Forms;
 using Microsoft.AspNetCore.Mvc;
 using Umbraco.Cms.Core.Services;
 using Umbraco.Cms.Infrastructure.Scoping;
-using Umbraco.Cms.Web.BackOffice.Controllers;
-using Umbraco.Extensions;
-
+using Umbraco.Cms.Web.Common.Controllers;
 namespace Crolow.Cms.Core.Controllers.Api.FormsManagement;
 
 
-public class CrolowFormBoApiController : UmbracoAuthorizedJsonController
+public class CrolowFormBoApiController : UmbracoAuthorizedController
 {
     private readonly IScopeProvider _scopeProvider;
     private readonly IContentService contentService;

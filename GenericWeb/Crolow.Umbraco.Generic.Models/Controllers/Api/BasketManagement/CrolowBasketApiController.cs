@@ -1,24 +1,14 @@
 ﻿using AutoMapper;
-using Crolow.Cms.Core.Models.Entities;
-using Crolow.Cms.Core.Models.Schemas;
-using Crolow.Cms.Core.Models.Umbraco;
 using Crolow.Cms.Core.Models.ViewModel.Basket;
 using Crolow.Cms.Core.Services.Interdaces;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using Umbraco.Cms.Core.Models;
 using Umbraco.Cms.Core.Models.PublishedContent;
-using Umbraco.Cms.Core.Scoping;
 using Umbraco.Cms.Core.Security;
 using Umbraco.Cms.Core.Services;
-using Umbraco.Cms.Infrastructure.Scoping;
 using Umbraco.Cms.Web.Common;
 using Umbraco.Cms.Web.Common.Controllers;
-using Umbraco.Extensions;
 
 namespace Crolow.Cms.Core.Controllers.Api.BasketManagement
 {

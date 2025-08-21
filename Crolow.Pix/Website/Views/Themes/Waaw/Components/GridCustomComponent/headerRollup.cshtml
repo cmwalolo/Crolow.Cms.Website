@@ -1,0 +1,20 @@
+﻿@using Crolow.Cms.Core.Models.ViewModel.Custom
+@using Crolow.Cms.Core.Models.ViewModel.Media
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<IEnumerable<object>>
+
+@if (Model != null && Model.Any())
+{
+    var firstItem = Model?.FirstOrDefault() as HeaderRollupModel;
+
+    <div class="banner">
+        <img src="@firstItem.Image" style="width:100%" />
+        <div class="punchline-container">
+            @foreach (var s in firstItem.Items)
+            {
+                <div class="punchline">@s</div>
+
+            }
+        </div>
+    </div>
+}
+

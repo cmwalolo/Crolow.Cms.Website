@@ -20,7 +20,7 @@ namespace Crolow.Cms.Core.Models.Umbraco
 {
 	/// <summary>Media page</summary>
 	[PublishedModel("mediaPage")]
-	public partial class MediaPage : PublishedContentModel, ISEO
+	public partial class MediaPage : PublishedContentModel, IBasePage, ISEO
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -105,14 +105,6 @@ namespace Crolow.Cms.Core.Models.Umbraco
 		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString Description => this.Value<global::Umbraco.Cms.Core.Strings.IHtmlEncodedString>(_publishedValueFallback, "description");
 
 		///<summary>
-		/// Hint
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.1.1+cd47bdb")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("hint")]
-		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString Hint => this.Value<global::Umbraco.Cms.Core.Strings.IHtmlEncodedString>(_publishedValueFallback, "hint");
-
-		///<summary>
 		/// image
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.1.1+cd47bdb")]
@@ -129,14 +121,6 @@ namespace Crolow.Cms.Core.Models.Umbraco
 		public virtual string Location => this.Value<string>(_publishedValueFallback, "location");
 
 		///<summary>
-		/// Media tags
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.1.1+cd47bdb")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("mediaTags")]
-		public virtual global::System.Collections.Generic.IEnumerable<string> MediaTags => this.Value<global::System.Collections.Generic.IEnumerable<string>>(_publishedValueFallback, "mediaTags");
-
-		///<summary>
 		/// SaleUrl
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.1.1+cd47bdb")]
@@ -151,6 +135,14 @@ namespace Crolow.Cms.Core.Models.Umbraco
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("tags")]
 		public virtual global::System.Collections.Generic.IEnumerable<string> Tags => this.Value<global::System.Collections.Generic.IEnumerable<string>>(_publishedValueFallback, "tags");
+
+		///<summary>
+		/// Hint
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.1.1+cd47bdb")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("hint")]
+		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString Hint => global::Crolow.Cms.Core.Models.Umbraco.BasePage.GetHint(this, _publishedValueFallback);
 
 		///<summary>
 		/// Canonical: Used in SEO, see: http://googlewebmastercentral.blogspot.com/2009/02/specify-your-canonical.html
@@ -174,7 +166,7 @@ namespace Crolow.Cms.Core.Models.Umbraco
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.1.1+cd47bdb")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("hashtags")]
-		public virtual string Hashtags => global::Crolow.Cms.Core.Models.Umbraco.SEO.GetHashtags(this, _publishedValueFallback);
+		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString Hashtags => global::Crolow.Cms.Core.Models.Umbraco.SEO.GetHashtags(this, _publishedValueFallback);
 
 		///<summary>
 		/// Hide From Xml Sitemap: whether to show this page on the XML sitemap

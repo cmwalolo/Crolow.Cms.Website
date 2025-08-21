@@ -74,12 +74,12 @@ namespace Crolow.Cms.Core.Models.Umbraco
 		public virtual global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.Link> Links => global::Crolow.Cms.Core.Models.Umbraco.GenericCard.GetLinks(this, _publishedValueFallback);
 
 		///<summary>
-		/// Subtilte
+		/// Subtitle
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.1.1+cd47bdb")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("subtilte")]
-		public virtual string Subtilte => global::Crolow.Cms.Core.Models.Umbraco.GenericCard.GetSubtilte(this, _publishedValueFallback);
+		[ImplementPropertyType("subtitle")]
+		public virtual string Subtitle => global::Crolow.Cms.Core.Models.Umbraco.GenericCard.GetSubtitle(this, _publishedValueFallback);
 
 		///<summary>
 		/// Title

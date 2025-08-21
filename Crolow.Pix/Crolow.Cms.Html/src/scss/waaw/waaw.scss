@@ -1,0 +1,436 @@
+@import "_sidebar.scss";
+
+:root {
+  --bs-border-color: #ee7908;
+  /*3px solid #ee7908*/
+}
+
+:root, [data-bs-theme=light] {
+  --bs-border-color: #ee7908;
+}
+
+[data-bs-theme=dark] {
+  --bs-border-color: #ee7908; /* optional, if you want same in dark mode */
+}
+
+.bi-large
+{
+    font-zise:26pt;
+}
+
+html, body {
+  height: 100%;
+  overflow:hidden;
+  margin: 0;
+}
+
+.page-body {
+  display: flex;
+  flex-direction: column;
+  /* modern mobile-safe viewport */
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.page-layout {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  flex: 1 1 auto; /* ← key: fills the column */
+  min-height: 0; /* ← key: allow the 1fr row to shrink */
+  height:100vh;
+
+}
+
+.header {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  align-items: center;
+  padding-left:50px !important;
+  padding: 0.5rem 1rem;
+  background: #222;
+  color: #fff;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  position: relative;
+  min-height: 0;
+}
+
+
+
+.content-body {
+  padding: 1rem;
+  overflow-y:auto;
+}
+
+.section {
+  background: #f5f5f5;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.footer {
+  background: #333;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+
+.carousel-footer {
+    background-color: $gray-900;
+}
+
+.card-header {
+    background-color: #222;
+}
+
+.card-headline .card-header {
+    border-bottom: #9e0d0d 3px solid;
+}
+
+
+.card-footer {
+    background-color: $gray-900;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    color: $yellow;
+}
+
+h1 {
+  background: -webkit-gradient(linear, left top, right top, from(#ffffff), to(rgb(234, 189, 84)));
+  background: linear-gradient(-45deg, #ffffff, rgb(234, 189, 84));
+  -webkit-background-clip: text; /* Needed for Safari and Chrome */
+  -webkit-text-fill-color: transparent; /* Makes the text show the background */
+}
+
+h1, h2 {
+  border-bottom: 3px solid var(--bs-border-color) !important;
+  padding-bottom: 10px;
+}
+
+.bordered h3 {
+    border-bottom: $red 3px solid;
+    padding-bottom:15px;
+}
+
+.btn-primary {
+  color: $white;
+//  background-color: $red;
+  font-weight: bold;
+
+    --h: 23; /* hue: 20–45 = oak/pine, 15–25 = teak, 8–15 = walnut */
+    --s: 45%;
+    --l1: 20%;
+    --l2: 20%;
+    background: repeating-linear-gradient(45deg, hsla(var(--h),20%,20%,.06) 0 9px, hsla(var(--h),20%,20%,0) 9px 18px), linear-gradient(to right, hsl(var(--h) var(--s) var(--l1)), hsl(var(--h) var(--s) var(--l2)), hsl(var(--h) var(--s) var(--l1)));
+    background-blend-mode: overlay, normal;
+}
+
+
+.card-img-top {
+    background-color: $gray-600;
+}
+
+.slick-initialized .card-body {
+    height: 150px;
+
+    @media screen and (max-width: 767px) {
+        height: 180px;
+    }
+}
+
+.cv-column-1 {
+    img {
+        margin-top: 20px;
+        border-radius: 50%;
+        width: 60%;
+        margin-left: 20%;
+    }
+}
+
+.timeline {
+
+    .item {
+        .card-header {
+            padding-bottom: 0px;
+        }
+
+        .time {
+            color: $red;
+            font-weight: bold;
+        }
+    }
+}
+
+
+.slick-dots li button:before, .slick-dots li.slick-active button:before {
+    color: white;
+}
+
+.navbar-nav {
+  width: 100%;
+}
+
+@media(min-width:568px) {
+  .end {
+    margin-left: auto;
+  }
+}
+
+@media(max-width:768px) {
+  #post {
+    width: 100%;
+  }
+}
+
+#clicked {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  text-align: center;
+  width: 100%;
+  background-color: #ecb21f;
+  border-color: #a88734 #9c7e31 #846a29;
+  color: black;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 13px;
+}
+
+#profile {
+  background-color: unset;
+}
+
+#post {
+  margin: 10px;
+  padding: 6px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  text-align: center;
+  background-color: #ecb21f;
+  border-color: #a88734 #9c7e31 #846a29;
+  color: black;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 13px;
+  width: 50%;
+}
+
+body {
+  background-color: black;
+}
+
+#nav-items li a, #profile {
+  text-decoration: none;
+  color: rgb(224, 219, 219);
+  background-color: black;
+}
+
+
+.comments {
+  margin-top: 5%;
+  margin-left: 20px;
+}
+
+.darker {
+  border: 1px solid #ecb21f;
+  background-color: black;
+  float: right;
+  border-radius: 5px;
+  padding-left: 40px;
+  padding-right: 30px;
+  padding-top: 10px;
+}
+
+.comment {
+  border: 1px solid rgba(16, 46, 46, 1);
+  background-color: rgba(16, 46, 46, 0.973);
+  float: left;
+  border-radius: 5px;
+  padding-left: 40px;
+  padding-right: 30px;
+  padding-top: 10px;
+}
+
+.comment h4, .comment span, .darker h4, .darker span {
+  display: inline;
+}
+
+.comment p, .comment span, .darker p, .darker span {
+  color: rgb(184, 183, 183);
+}
+
+h1, h4 {
+  color: white;
+  font-weight: bold;
+}
+
+label {
+  color: rgb(212, 208, 208);
+}
+
+#align-form {
+  margin-top: 20px;
+}
+
+.form-group p a {
+  color: white;
+}
+
+#checkbx {
+  background-color: black;
+}
+
+#darker img {
+  margin-right: 15px;
+  position: static;
+}
+
+.form-group input, .form-group textarea {
+  background-color: black;
+  border: 1px solid rgba(16, 46, 46, 1);
+  border-radius: 12px;
+}
+
+form {
+  border: 1px solid rgba(16, 46, 46, 1);
+  background-color: rgba(16, 46, 46, 0.973);
+  border-radius: 5px;
+  padding: 20px;
+}
+
+
+.bi {
+  background: linear-gradient(90deg, #ff7e5f, rgb(234,189,84)); /*#feb47b);*/
+  -webkit-background-clip: text; /* Needed for Safari and Chrome */
+  -webkit-text-fill-color: transparent; /* Makes the text show the background */
+}
+
+
+.banner {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.banner img {
+  width: 100%;
+  display: block;
+}
+
+
+.punchline-container {
+  position: absolute;
+  bottom: 15%;
+  right: 10%;
+  width: 50%;
+  height: 50%;
+  padding: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* Punchlines */
+.punchline {
+  font-size: clamp(0.8rem, 2.3vw, 2.5rem); /* min, preferred, max */
+  position: absolute; /* So they stack in same place */
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  font-style: italic;
+  background: -webkit-gradient(linear, left top, right top, from(#ffffff), to(rgb(234, 189, 84)));
+  background: linear-gradient(45deg, #ffffff, rgb(234, 189, 84));
+  -webkit-background-clip: text; /* Needed for Safari and Chrome */
+  -webkit-text-fill-color: transparent; /* Makes the text show the background */
+}
+
+.punchline.show {
+  display: block;
+  opacity: 1;
+}
+
+
+.home-btn-large {
+  width: 100%;
+  padding: 5px;
+}
+
+.home-btn-small {
+  padding: 5px;
+  margin-left: 10px;
+  text-align:right;
+}
+
+.price {
+  font-color: black;
+  font-size: larger;
+  font-weight: bold;
+  margin-left: 10px;
+  text-wrap: nowrap;
+}
+
+.card-footer
+{
+    text-align:right;
+}
+
+
+.card-text
+{
+    padding:10px;
+}
+
+
+.slicker .card {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* optional, if using equalizer JS */
+}
+
+/* Make the card-text take up available space */
+.slicker .card-text {
+  flex: 1 1 auto;
+  padding-bottom: 50px;
+}
+
+.slicker .card-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+
+.wood {
+  --h: 20; /* hue: 20–45 = oak/pine, 15–25 = teak, 8–15 = walnut */
+  --s: 45%;
+  --l1: 38%;
+  --l2: 30%;
+  /*--s: 45%;
+  --l1: 68%;
+  --l2: 58%;*/
+  background:
+  /* fine grain only */
+  repeating-linear-gradient(0deg, hsla(var(--h),20%,20%,.06) 0 2px, hsla(var(--h),20%,20%,0) 3px 6px), linear-gradient(to right, hsl(var(--h) var(--s) var(--l1)), hsl(var(--h) var(--s) var(--l2)), hsl(var(--h) var(--s) var(--l1)));
+  background-blend-mode: overlay, normal;
+}
+
+
+.wood-dark {
+  --h: 23; /* hue: 20–45 = oak/pine, 15–25 = teak, 8–15 = walnut */
+  --s: 45%;
+  --l1: 20%;
+  --l2: 20%;
+  background:
+  repeating-linear-gradient(45deg, hsla(var(--h),20%,20%,.06) 0 9px, hsla(var(--h),20%,20%,0) 9px 18px), linear-gradient(to right, hsl(var(--h) var(--s) var(--l1)), hsl(var(--h) var(--s) var(--l2)), hsl(var(--h) var(--s) var(--l1)));
+  background-blend-mode: overlay, normal;
+}
+

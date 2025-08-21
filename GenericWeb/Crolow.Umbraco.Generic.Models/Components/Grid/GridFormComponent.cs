@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Crolow.Cms.Core.Models.Umbraco;
+using Crolow.Cms.Generic.Core.Models.Umbraco;
 using Crolow.Cms.Core.Models.ViewModel;
 using Crolow.Cms.Core.Models.ViewModel.Cards;
 using Crolow.Core.Controllers.Pages;

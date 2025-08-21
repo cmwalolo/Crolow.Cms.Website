@@ -1,16 +1,16 @@
 ﻿using AutoMapper;
+using Crolow.Cms.Core.Components.Grid;
 using Crolow.Cms.Core.Models.Entities;
-using Crolow.Cms.Core.Models.Umbraco;
 using Crolow.Cms.Core.Models.ViewModel;
 using Crolow.Cms.Core.Models.ViewModel.Basket;
 using Crolow.Cms.Core.Models.ViewModel.Cards;
 using Crolow.Cms.Core.Models.ViewModel.Forms;
-using Crolow.Cms.Core.Models.ViewModel.Media;
 using Crolow.Cms.Core.Models.ViewModel.Navigation;
+using Crolow.Cms.Generic.Core.Models.Umbraco;
 using Umbraco.Cms.Core.Models;
 using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Cms.Core.Routing;
-using Umbraco.Extensions;
+using Member = Crolow.Cms.Generic.Core.Models.Umbraco.Member;
 
 namespace Crolow.Core.Startup.Profiles
 {
@@ -59,7 +59,7 @@ namespace Crolow.Core.Startup.Profiles
         {
             CreateMap<Product, CrolowProductModel>();
             CreateMap<IPublishedContent, CrolowOrderLineModel>();
-            CreateMap<Crolow.Cms.Core.Models.Umbraco.Member, CrolowMemberModel>();
+            CreateMap<Member, CrolowMemberModel>();
         }
 
         private void RegisterForm()
@@ -74,26 +74,26 @@ namespace Crolow.Core.Startup.Profiles
 
         private void RegisterMedia()
         {
-            var map = CreateMap<MediaPage, MediaPageModel>()
-                .ForMember(p => p.Caption, o => o.MapFrom(p => p.Caption))
-                .ForMember(p => p.Url, o => o.MapFrom(p => GetUrl(p)))
-                .ForMember(p => p.Tags, o => o.MapFrom(p => p.Tags))
-                .ForMember(p => p.Url, o => o.MapFrom(p => GetUrl(p)))
-                .ForMember(p => p.ImageUrl, o => o.MapFrom(p => GetMediaUrl(p.Image)));
+            //var map = CreateMap<MediaPage, MediaPageModel>()
+            //    .ForMember(p => p.Caption, o => o.MapFrom(p => p.Caption))
+            //    .ForMember(p => p.Url, o => o.MapFrom(p => GetUrl(p)))
+            //    .ForMember(p => p.Tags, o => o.MapFrom(p => p.Tags))
+            //    .ForMember(p => p.Url, o => o.MapFrom(p => GetUrl(p)))
+            //    .ForMember(p => p.ImageUrl, o => o.MapFrom(p => GetMediaUrl(p.Image)));
 
-            CreateMap<MediaCollectionPage, MediaCollectionPageModel>()
-                .ForMember(p => p.Url, o => o.MapFrom(p => GetUrl(p)))
-                .ForMember(p => p.ImageUrl, o => o.MapFrom(p => GetMediaUrl(p.Image)))
-                .ForMember(p => p.Collections,
-                                    o => o.MapFrom(p => p.Children<MediaCollectionPage>(null)))
-                .ForMember(p => p.Images,
-                                    o => o.MapFrom(p => p.Children<MediaPage>(null).OrderByDescending(p => p.Date)));
+            //CreateMap<MediaCollectionPage, MediaCollectionPageModel>()
+            //    .ForMember(p => p.Url, o => o.MapFrom(p => GetUrl(p)))
+            //    .ForMember(p => p.ImageUrl, o => o.MapFrom(p => GetMediaUrl(p.Image)))
+            //    .ForMember(p => p.Collections,
+            //                        o => o.MapFrom(p => p.Children<MediaCollectionPage>(null)))
+            //    .ForMember(p => p.Images,
+            //                        o => o.MapFrom(p => p.Children<MediaPage>(null).OrderByDescending(p => p.Date)));
 
 
-            CreateMap<MediaCollectionLandingPage, MediaCollectionLandingPageModel>()
-                .ForMember(p => p.Url, o => o.MapFrom(p => GetUrl(p)))
-                .ForMember(p => p.Collections,
-                                    o => o.MapFrom(p => p.Children<MediaCollectionPage>(null)));
+            //CreateMap<MediaCollectionLandingPage, MediaCollectionLandingPageModel>()
+            //    .ForMember(p => p.Url, o => o.MapFrom(p => GetUrl(p)))
+            //    .ForMember(p => p.Collections,
+            //                        o => o.MapFrom(p => p.Children<MediaCollectionPage>(null)));
 
         }
 
@@ -110,14 +110,14 @@ namespace Crolow.Core.Startup.Profiles
         {
             CreateMap<GridCard, CardItemModel>()
                 .ForMember(p => p.CardType, o => o.MapFrom(p => "Default"))
-                .ForMember(p => p.Image, o => o.MapFrom(p => GetMediaUrl(p.Image)));
+                ;//.ForMember(p => p.Image, o => o.MapFrom(p => GetMediaUrl(p.Image)));
 
             CreateMap<GridCards, CardsModel>()
-                .ForMember(p => p.Items, o => o.MapFrom(p => p.Cards));
+                ;//.ForMember(p => p.Items, o => o.MapFrom(p => p.Cards));
 
             CreateMap<BasicCard, CardItemModel>()
                 .ForMember(p => p.CardType, o => o.MapFrom(p => "Default"))
-                .ForMember(p => p.Image, o => o.MapFrom(p => GetMediaUrl(p.Image)));
+                ;//.ForMember(p => p.Image, o => o.MapFrom(p => GetMediaUrl(p.Image)));
         }
         private string GetUrl(IPublishedContent content)
         {

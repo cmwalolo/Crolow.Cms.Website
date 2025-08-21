@@ -4,6 +4,7 @@ using Crolow.Cms.Core.Models.Umbraco;
 using Crolow.Cms.Core.Models.ViewModel;
 using Crolow.Cms.Core.Models.ViewModel.Basket;
 using Crolow.Cms.Core.Models.ViewModel.Cards;
+using Crolow.Cms.Core.Models.ViewModel.Custom;
 using Crolow.Cms.Core.Models.ViewModel.Forms;
 using Crolow.Cms.Core.Models.ViewModel.Media;
 using Crolow.Cms.Core.Models.ViewModel.Navigation;
@@ -27,6 +28,7 @@ namespace Crolow.Core.Startup.Profiles
             RegisterForm();
             RegisterCrolowBasket();
             RegisterSeo();
+            RegisterCustom();
         }
 
         private void RegisterSeo()
@@ -35,8 +37,8 @@ namespace Crolow.Core.Startup.Profiles
             var images = new string[] { "image" };
 
             CreateMap<IPublishedContent, SeoModel>().
-                ForMember(p => p.OGImage, o => o.MapFrom(p => GetMediaUrl(p, "OGImage", images, UrlMode.Absolute))).
-                ForMember(p => p.TwitterImage, o => o.MapFrom(p => GetMediaUrl(p, "TwitterImage", images, UrlMode.Absolute))).
+                ForMember(p => p.OGImage, o => o.MapFrom(p => GetMediaCropUrl(p, "OGImage", images, UrlMode.Absolute))).
+                ForMember(p => p.TwitterImage, o => o.MapFrom(p => GetMediaCropUrl(p, "TwitterImage", images, UrlMode.Absolute))).
                 ForMember(p => p.FBAppId, o => o.MapFrom(p => GetValue<string>(p, "FBAppId"))).
                 ForMember(p => p.Canonical, o => o.MapFrom(p => GetValue<string>(p, "Canonical"))).
                 ForMember(p => p.MetaAuthor, o => o.MapFrom(p => GetValue<string>(p, "metaAuthor"))).
@@ -79,11 +81,11 @@ namespace Crolow.Core.Startup.Profiles
                 .ForMember(p => p.Url, o => o.MapFrom(p => GetUrl(p)))
                 .ForMember(p => p.Tags, o => o.MapFrom(p => p.Tags))
                 .ForMember(p => p.Url, o => o.MapFrom(p => GetUrl(p)))
-                .ForMember(p => p.ImageUrl, o => o.MapFrom(p => GetMediaUrl(p.Image)));
+                .ForMember(p => p.ImageUrl, o => o.MapFrom(p => GetMediaCropUrl(p.Image)));
 
             CreateMap<MediaCollectionPage, MediaCollectionPageModel>()
                 .ForMember(p => p.Url, o => o.MapFrom(p => GetUrl(p)))
-                .ForMember(p => p.ImageUrl, o => o.MapFrom(p => GetMediaUrl(p.Image)))
+                .ForMember(p => p.ImageUrl, o => o.MapFrom(p => GetMediaCropUrl(p.Image)))
                 .ForMember(p => p.Collections,
                                     o => o.MapFrom(p => p.Children<MediaCollectionPage>(null)))
                 .ForMember(p => p.Images,
@@ -102,29 +104,43 @@ namespace Crolow.Core.Startup.Profiles
         {
             var map = CreateMap<IPublishedContent, MenuItemModel>()
                 .ForMember(p => p.Title, o => o.MapFrom(p => (p is ISEO && !string.IsNullOrEmpty(((ISEO)p).PageTitle)) ? ((ISEO)p).PageTitle : p.Name))
-                .ForMember(p => p.Url, o => o.MapFrom(p => GetUrl(p)))
+                .ForMember(p => p.Url, o => o.MapFrom(p => p is MenuItem ? ((MenuItem)p).Link.Url : GetUrl(p)))
+                .ForMember(p => p.Icon, o => o.MapFrom(p => p is MenuItem ? ((MenuItem)p).Icon : ""))
                 .ForMember(p => p.Children, o => o.Ignore());
         }
 
+        private void RegisterCustom()
+        {
+            CreateMap<HeaderRollup, HeaderRollupModel>()
+                .ForMember(p => p.Image, o => o.MapFrom(p => GetMediaUrl(p.Image)))
+                .ForMember(p => p.Items, o => o.Ignore());
+
+
+        }
         private void RegisterCards()
         {
             CreateMap<GridCard, CardItemModel>()
                 .ForMember(p => p.CardType, o => o.MapFrom(p => "Default"))
-                .ForMember(p => p.Image, o => o.MapFrom(p => GetMediaUrl(p.Image)));
+                .ForMember(p => p.Image, o => o.MapFrom(p => GetMediaCropUrl(p.Image)));
 
             CreateMap<GridCards, CardsModel>()
                 .ForMember(p => p.Items, o => o.MapFrom(p => p.Cards));
 
             CreateMap<BasicCard, CardItemModel>()
                 .ForMember(p => p.CardType, o => o.MapFrom(p => "Default"))
-                .ForMember(p => p.Image, o => o.MapFrom(p => GetMediaUrl(p.Image)));
+                .ForMember(p => p.Image, o => o.MapFrom(p => GetMediaCropUrl(p.Image)));
         }
         private string GetUrl(IPublishedContent content)
         {
             return content.Url();
         }
 
-        private string GetMediaUrl(IPublishedContent content, string property, string[] altProperties, UrlMode urlMode)
+        private string GetMediaUrl(MediaWithCrops content)
+        {
+            return content.Url(mode: UrlMode.Default) ?? "";
+        }
+
+        private string GetMediaCropUrl(IPublishedContent content, string property, string[] altProperties, UrlMode urlMode)
         {
             var media = content.Value<MediaWithCrops>(property);
             if (media == null)
@@ -150,12 +166,12 @@ namespace Crolow.Core.Startup.Profiles
             return null;
         }
 
-        private string GetMediaUrl(MediaWithCrops content)
+        private string GetMediaCropUrl(MediaWithCrops content)
         {
             return content.GetCropUrl("Small and large", UrlMode.Default) ?? "";
         }
 
-        private string GetMediaUrl(MediaWithCrops content, string crop)
+        private string GetMediaCropUrl(MediaWithCrops content, string crop)
         {
             return content.GetCropUrl(crop, UrlMode.Default);
         }

@@ -2,6 +2,7 @@
 using Crolow.Cms.Core.Controllers.Api.BasketManagement;
 using Crolow.Cms.Core.Services.Interdaces;
 using Crolow.Cms.Core.Startup.Mvc;
+using Crolow.Cms.Core.Utils.Dictionary;
 using Crolow.Core.Startup.Profiles;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
@@ -55,6 +56,9 @@ namespace Crolow.CMS.Core.Startup.Composers
 
         private void AddIOC(IUmbracoBuilder builder)
         {
+            builder.Services.AddScoped<DictionaryHelper>();
+            builder.Services.AddScoped<IDictionaryLocalizer, DictionaryLocalizer>();
+
             builder.Services.AddSingleton<ICrolowBasketService, CrolowBasketService>();
         }
 

@@ -1,12 +1,4 @@
-﻿using Crolow.Cms.Core.Models.ViewModel.Media;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Umbraco.Cms.Web.Common;
-
-namespace Crolow.Cms.Core.Models.ViewModel.Navigation
+﻿namespace Crolow.Cms.Core.Models.ViewModel.Navigation
 {
     public class MenuItemModel
     {
@@ -20,5 +12,7 @@ namespace Crolow.Cms.Core.Models.ViewModel.Navigation
         public List<MenuItemModel> Children { get; set; }
         public string RootUrl { get; set; }
         public bool Active { get; set; }
+        public string Icon { get; set; }
+        public string Id { get; set; }
     }
 }

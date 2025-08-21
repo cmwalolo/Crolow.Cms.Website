@@ -1,0 +1,45 @@
+﻿@using Crolow.Cms.Core.Models.ViewModel.Navigation;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<MenuItemModel>
+@{
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <div style="margin-right:10px; text-align: center;">
+                <a class="navbar-brand" href="/fr">
+                    <img style="height:120px;" src="~/images/crolowlogo2-bannered.png" />
+                </a>
+            </div>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    @foreach (var card in Model.Children)
+                    {
+                        var addclass = "";
+                        var addclass2 = "";
+                        if (card.Children.Any())
+                        {
+                            addclass = "dropdown";
+                        }
+                        <li class="nav-item @addclass">
+                            @if (!card.Children.Any())
+                            {
+                                <a class="nav-link @addclass2" href="@card.Url">@card.Title</a>
+                            }
+                            else
+                            {
+                                <a class="nav-link dropdown-toggle" href="@card.Url" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">@card.Title</a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
+                                    @foreach (var child in card.Children)
+                                    {
+                                        <a class="dropdown-item" href="@child.Url">@child.Title</a>
+                                    }
+                                </div>
+                            }
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </nav>
+}

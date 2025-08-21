@@ -87,7 +87,7 @@ namespace Crolow.Cms.Core.Models.Umbraco
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.1.1+cd47bdb")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("hashtags")]
-		public virtual string Hashtags => global::Crolow.Cms.Core.Models.Umbraco.SEO.GetHashtags(this, _publishedValueFallback);
+		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString Hashtags => global::Crolow.Cms.Core.Models.Umbraco.SEO.GetHashtags(this, _publishedValueFallback);
 
 		///<summary>
 		/// Hide From Xml Sitemap: whether to show this page on the XML sitemap

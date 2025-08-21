@@ -1,0 +1,157 @@
+﻿html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.page-body {
+    display: flex;
+    flex-direction: column;
+    /* modern mobile-safe viewport */
+    min-height: 100vh;
+    min-height: 100dvh;
+}
+
+.page-layout {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    flex: 1 1 auto; /* ← key: fills the column */
+    min-height: 0; /* ← key: allow the 1fr row to shrink */
+}
+
+.header {
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background: #222;
+    color: #fff;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    position: relative;
+    min-height: 0;
+}
+
+.content-sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #333;
+    padding: 0.5rem 0;
+}
+
+.sidebar-icon {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    margin: 0.5rem 0;
+    cursor: pointer;
+}
+
+/* Overlay Panel */
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 50px; /* start right after the icon sidebar */
+    width: 250px;
+    height: 100%;
+    background: #fff;
+    border-right: 1px solid #dee2e6;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 1050;
+}
+
+    .sidebar-overlay.active {
+        transform: translateX(0);
+    }
+
+/* Overlay Header */
+.overlay-header {
+    background: #f8f9fa;
+    padding: 0.75rem;
+    border-bottom: 1px solid #dee2e6;
+}
+
+/* Menu Styles */
+.sidebar-overlay {
+    position: absolute;
+    top: 0;
+    left: 50px; /* beside sidebar */
+    width: 250px;
+    height: 100%;
+    background: #fff;
+    border-right: 1px solid #dee2e6;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    /* HIDDEN BY DEFAULT */
+    transform: translateX(-100%);
+    visibility: hidden;
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    z-index: 1050;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+    .sidebar-overlay.active {
+        transform: translateX(0);
+        visibility: visible;
+        opacity: 1;
+    }
+
+/* Overlay content */
+.overlay-header {
+    background: #f8f9fa;
+    padding: 0.75rem;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.overlay-menu,
+.overlay-submenu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+    .overlay-menu li,
+    .overlay-submenu li {
+        padding: 0.5rem 0.75rem;
+        border-bottom: 1px solid #f1f1f1;
+    }
+
+    .overlay-menu button,
+    .overlay-submenu a {
+        background: none;
+        border: none;
+        font-size: 1rem;
+        color: #212529;
+        width: 100%;
+        text-align: left;
+    }
+
+        .overlay-menu button:hover,
+        .overlay-submenu a:hover {
+            color: #0d6efd;
+        }
+
+.content-body {
+    padding: 1rem;
+}
+
+.section {
+    background: #f5f5f5;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.footer {
+    background: #eee;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    text-align: center;
+}

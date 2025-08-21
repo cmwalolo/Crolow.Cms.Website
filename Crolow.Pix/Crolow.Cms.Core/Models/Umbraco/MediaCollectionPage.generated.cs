@@ -20,7 +20,7 @@ namespace Crolow.Cms.Core.Models.Umbraco
 {
 	/// <summary>Media collection page</summary>
 	[PublishedModel("mediaCollectionPage")]
-	public partial class MediaCollectionPage : PublishedContentModel, ISEO
+	public partial class MediaCollectionPage : PublishedContentModel, IBasePage, ISEO
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -82,6 +82,14 @@ namespace Crolow.Cms.Core.Models.Umbraco
 		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString Summary => this.Value<global::Umbraco.Cms.Core.Strings.IHtmlEncodedString>(_publishedValueFallback, "summary");
 
 		///<summary>
+		/// Hint
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.1.1+cd47bdb")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("hint")]
+		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString Hint => global::Crolow.Cms.Core.Models.Umbraco.BasePage.GetHint(this, _publishedValueFallback);
+
+		///<summary>
 		/// Canonical: Used in SEO, see: http://googlewebmastercentral.blogspot.com/2009/02/specify-your-canonical.html
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.1.1+cd47bdb")]
@@ -103,7 +111,7 @@ namespace Crolow.Cms.Core.Models.Umbraco
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.1.1+cd47bdb")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("hashtags")]
-		public virtual string Hashtags => global::Crolow.Cms.Core.Models.Umbraco.SEO.GetHashtags(this, _publishedValueFallback);
+		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString Hashtags => global::Crolow.Cms.Core.Models.Umbraco.SEO.GetHashtags(this, _publishedValueFallback);
 
 		///<summary>
 		/// Hide From Xml Sitemap: whether to show this page on the XML sitemap

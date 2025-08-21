@@ -10,7 +10,8 @@ import CopyPlugin from "copy-webpack-plugin"
 export default {
   // Define the entry points of our application (can be multiple for different sections of a website)
   entry: {
-    crolow : "./src/js/crolow.js"
+    //crolow: "./src/js/crolow.js",
+    waaw: "./src/js/waaw.js"
   },
 
   // Define the destination directory and filenames of compiled resources

@@ -1,0 +1,39 @@
+﻿@using Crolow.Cms.Core.Models.ViewModel.Navigation;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<MenuItemModel>
+
+
+@{
+    <nav>
+        @foreach (var item in Model.Children.Take(1))
+        {
+
+            foreach (var child in item.Children)
+            {
+                <button class="sidebar-icon" data-title="@($"#nav{child.Title}")" data-target="@($"#nav{child.Id}")" aria-label="Menu">
+                    <i class="@child.Icon"></i>
+                </button>
+            }
+        }
+
+        @foreach (var item in Model.Children.Skip(1))
+        {
+            <div class="wood sidebar-overlay" id="@($"nav{item.Id}")">
+                <ul class="overlay-menu">
+                    <li class="wood-dark menu-header"><button class="back-btn" data-target="@($"#nav{item.Id}")">&larr; @item.Title</button></li>
+                    @foreach (var child in item.Children)
+                    {
+                        <li class="menu-item">
+                            <a href="@child.Url" data-target="@(!string.IsNullOrEmpty(child.Url) ? "" : $"#nav{child.Id}")">
+                                @if (!string.IsNullOrEmpty(child.Icon))
+                                {
+                                    <i class="@child.Icon"></i>
+                                }
+                                @child.Title
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        }
+    </nav>
+}

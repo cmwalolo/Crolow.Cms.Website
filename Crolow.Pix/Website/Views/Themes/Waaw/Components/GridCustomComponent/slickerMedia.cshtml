@@ -1,0 +1,25 @@
+﻿@using Crolow.Cms.Core.Models.ViewModel.Media
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<IEnumerable<object>>
+
+@if (Model != null && Model.Any())
+{
+    <div class="row slicker">
+        @foreach (var itemObject in Model)
+        {
+            var item = itemObject as MediaPageModel;
+            <div class="portfolio-item2 col-4">
+                <div class="card h-100">
+                    <a href="@item.Url"><img class="card-img-top" src="@item.ImageUrl" alt=""></a>
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            <a href="@item.Url">@item.Name</a>
+                        </h4>
+                        <div class="card-text">
+                            @Html.Raw(item.Caption)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}

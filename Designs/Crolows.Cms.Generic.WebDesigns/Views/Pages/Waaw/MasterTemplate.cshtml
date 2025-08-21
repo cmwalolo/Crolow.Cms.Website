@@ -1,0 +1,114 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/waaw/css/site.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icon-css@4.1.7/css/flag-icons.min.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" integrity="sha384-tViUnnbYAV00FLIhhi3v/dWt3Jxw4gZQcNoSCxCIFNJVCx7/D55/wXsrNIRANwdD" crossorigin="anonymous">
+</head>
+<body>
+    <div class="page-body">
+        <div class="page-layout">
+
+            <header class="header d-flex align-items-center justify-content-between p-2 border-bottom">
+                <div class="logo fs-4 fw-bold">LOGO</div>
+                <div class="punchline text-center flex-grow-1 mx-3">
+                    Your punchline here
+                </div>
+
+                <div class="d-flex align-items-center gap-3">
+                    <!-- Language Dropdown -->
+                    <div class="dropdown">
+                        <button class="btn btn-outline-secondary dropdown-toggle d-flex align-items-center" type="button" id="langDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="flag-icon flag-icon-us me-1"></span> English
+                        </button>    
+                        <ul class="dropdown-menu" aria-labelledby="langDropdown">
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <span class="flag-icon flag-icon-us me-2"></span> English
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <span class="flag-icon flag-icon-fr me-2"></span> French
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <span class="flag-icon flag-icon-nl me-2"></span> Dutch
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Basket Icon -->
+                    <button class="btn btn-outline-secondary position-relative" aria-label="Basket">
+                        <i class="bi bi-cart"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            3
+                        </span>
+                    </button>
+                </div>
+            </header>
+
+            <main class="content">
+                <nav class="content-sidebar">
+                    <button class="sidebar-icon" data-target="#navOverlay" aria-label="Menu">
+                        <i class="bi bi-list"></i>
+                    </button>
+                    <button class="sidebar-icon" data-target="#filtersOverlay" aria-label="Filters">
+                        <i class="bi bi-sliders"></i>
+                    </button>
+                </nav>
+
+                <div class="sidebar-overlay" id="navOverlay">
+                    <div class="overlay-header">
+                        <button class="back-btn btn btn-sm btn-outline-secondary">&larr; Back</button>
+                    </div>
+                    <ul class="overlay-menu">
+                        <li><button class="menu-item" data-target="#navSubProducts">Products →</button></li>
+                        <li><button class="menu-item" data-target="#navSubAbout">About Us →</button></li>
+                    </ul>
+                </div>
+
+                <!-- Filters Overlay -->
+                <div class="sidebar-overlay" id="filtersOverlay">
+                    <div class="overlay-header">
+                        <button class="back-btn btn btn-sm btn-outline-secondary">&larr; Back</button>
+                    </div>
+                    <ul class="overlay-menu">
+                        <li><label><input type="checkbox"> Option 1</label></li>
+                        <li><label><input type="checkbox"> Option 2</label></li>
+                    </ul>
+                </div>
+
+
+                <div class="content-body">
+                    @RenderBody()
+                </div>
+            </main>
+
+            <footer class="footer">
+                Small footer text here
+            </footer>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+            integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
+    <script src="/waaw/js/site.js"></script>
+
+</body>
+</html>

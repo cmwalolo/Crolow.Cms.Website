@@ -1,4 +1,4 @@
-using Crolow.Cms.Generic.Models.Umbraco;
+using Crolow.Cms.Generic.Core.Models.Umbraco;
 using Umbraco.Community.BlockPreview.Extensions;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);

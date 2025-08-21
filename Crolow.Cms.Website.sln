@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crolow.Cms.Core", "Crolow.P
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Website", "Crolow.Pix\Website\Website.csproj", "{034550AD-F24C-8A9F-CAE9-FEAC1EB2683F}"
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Crolow.Cms.Html(1)", "Crolow.Pix\Crolow.Cms.Html\", "{A138493D-BCAA-5588-A3F4-428E0BB9FDE4}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Crolow.Cms.Html", "Crolow.Pix\Crolow.Cms.Html\", "{A138493D-BCAA-5588-A3F4-428E0BB9FDE4}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.8"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_64284"
@@ -35,6 +35,37 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crolow.Cms.Generic.Web", "GenericWeb\Crolow.Cms.Generic.Web\Crolow.Cms.Generic.Web.csproj", "{668AF97C-8DB8-E9BF-231E-142C73F95625}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crolow.Cms.Generic.Core", "GenericWeb\Crolow.Umbraco.Generic.Models\Crolow.Cms.Generic.Core.csproj", "{1EA333FF-A017-40B7-E3ED-986A20BFCBD0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Designs", "Designs", "{39B83439-0042-445D-ADC3-DD315D9D9CA2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crolows.Cms.Generic.WebDesigns", "Designs\Crolows.Cms.Generic.WebDesigns\Crolows.Cms.Generic.WebDesigns.csproj", "{A4B8BF4A-2D9E-C96B-4E14-34105118136A}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Crolow.Cms.Generic.Designs", "Designs\Crolow.Cms.Generic.Designs\", "{D0E05E9B-B994-CEC0-4283-EE4C60C49C77}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.8.1"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_53222"
+		Debug.AspNetCompiler.PhysicalPath = "Designs\Crolow.Cms.Generic.Designs\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_53222\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_53222"
+		Release.AspNetCompiler.PhysicalPath = "Designs\Crolow.Cms.Generic.Designs\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_53222\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "53222"
+		SlnRelativePath = "Designs\Crolow.Cms.Generic.Designs\"
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OpenAi", "OpenAi", "{DD6A89E2-1608-485E-8524-A7AA24F43835}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crolow.OpenAI", "..\crolow.umbraco.openAi\Crolow.Umbraco.OpenAI\Crolow.Azure\Crolow.OpenAI.csproj", "{5EB4B7E9-925A-B487-B25D-6ED5DA2E40EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crolow.OpenAi.Umbraco", "..\crolow.umbraco.openAi\Crolow.Umbraco.OpenAI\Crolow.Umbraco.OpenAI\Crolow.OpenAi.Umbraco.csproj", "{C7C45FB3-A0C3-4DD6-9356-7A9DD66835B6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -62,6 +93,22 @@ Global
 		{1EA333FF-A017-40B7-E3ED-986A20BFCBD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1EA333FF-A017-40B7-E3ED-986A20BFCBD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1EA333FF-A017-40B7-E3ED-986A20BFCBD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4B8BF4A-2D9E-C96B-4E14-34105118136A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4B8BF4A-2D9E-C96B-4E14-34105118136A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4B8BF4A-2D9E-C96B-4E14-34105118136A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4B8BF4A-2D9E-C96B-4E14-34105118136A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0E05E9B-B994-CEC0-4283-EE4C60C49C77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0E05E9B-B994-CEC0-4283-EE4C60C49C77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0E05E9B-B994-CEC0-4283-EE4C60C49C77}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0E05E9B-B994-CEC0-4283-EE4C60C49C77}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{5EB4B7E9-925A-B487-B25D-6ED5DA2E40EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EB4B7E9-925A-B487-B25D-6ED5DA2E40EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EB4B7E9-925A-B487-B25D-6ED5DA2E40EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EB4B7E9-925A-B487-B25D-6ED5DA2E40EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7C45FB3-A0C3-4DD6-9356-7A9DD66835B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7C45FB3-A0C3-4DD6-9356-7A9DD66835B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7C45FB3-A0C3-4DD6-9356-7A9DD66835B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7C45FB3-A0C3-4DD6-9356-7A9DD66835B6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -72,6 +119,10 @@ Global
 		{A138493D-BCAA-5588-A3F4-428E0BB9FDE4} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{668AF97C-8DB8-E9BF-231E-142C73F95625} = {473C6FCB-7F54-4F82-B0C3-B0FC47A37453}
 		{1EA333FF-A017-40B7-E3ED-986A20BFCBD0} = {473C6FCB-7F54-4F82-B0C3-B0FC47A37453}
+		{A4B8BF4A-2D9E-C96B-4E14-34105118136A} = {39B83439-0042-445D-ADC3-DD315D9D9CA2}
+		{D0E05E9B-B994-CEC0-4283-EE4C60C49C77} = {39B83439-0042-445D-ADC3-DD315D9D9CA2}
+		{5EB4B7E9-925A-B487-B25D-6ED5DA2E40EE} = {DD6A89E2-1608-485E-8524-A7AA24F43835}
+		{C7C45FB3-A0C3-4DD6-9356-7A9DD66835B6} = {DD6A89E2-1608-485E-8524-A7AA24F43835}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {081BCD8A-DA05-40A0-9DC5-DF0B31ED093F}

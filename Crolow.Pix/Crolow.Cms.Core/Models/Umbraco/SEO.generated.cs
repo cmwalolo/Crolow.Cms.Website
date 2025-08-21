@@ -35,7 +35,7 @@ namespace Crolow.Cms.Core.Models.Umbraco
 		/// <summary>Hashtags</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.1.1+cd47bdb")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		string Hashtags { get; }
+		global::Umbraco.Cms.Core.Strings.IHtmlEncodedString Hashtags { get; }
 
 		/// <summary>Hide From Xml Sitemap</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.1.1+cd47bdb")]
@@ -213,12 +213,12 @@ namespace Crolow.Cms.Core.Models.Umbraco
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.1.1+cd47bdb")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("hashtags")]
-		public virtual string Hashtags => GetHashtags(this, _publishedValueFallback);
+		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString Hashtags => GetHashtags(this, _publishedValueFallback);
 
 		/// <summary>Static getter for Hashtags</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.1.1+cd47bdb")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static string GetHashtags(ISEO that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "hashtags");
+		public static global::Umbraco.Cms.Core.Strings.IHtmlEncodedString GetHashtags(ISEO that, IPublishedValueFallback publishedValueFallback) => that.Value<global::Umbraco.Cms.Core.Strings.IHtmlEncodedString>(publishedValueFallback, "hashtags");
 
 		///<summary>
 		/// Hide From Xml Sitemap: whether to show this page on the XML sitemap
