@@ -22,10 +22,10 @@ namespace Crolow.Cms.Core.Models.Umbraco
 	/// <summary>Generic Card</summary>
 	public partial interface IGenericCard : IPublishedElement
 	{
-		/// <summary>Body</summary>
+		/// <summary>Description</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.1.1+cd47bdb")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		global::Umbraco.Cms.Core.Strings.IHtmlEncodedString Body { get; }
+		global::Umbraco.Cms.Core.Strings.IHtmlEncodedString Description { get; }
 
 		/// <summary>Image</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.1.1+cd47bdb")]
@@ -37,10 +37,10 @@ namespace Crolow.Cms.Core.Models.Umbraco
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.Link> Links { get; }
 
-		/// <summary>Subtitle</summary>
+		/// <summary>Summary</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.1.1+cd47bdb")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		string Subtitle { get; }
+		string Summary { get; }
 
 		/// <summary>Title</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.1.1+cd47bdb")]
@@ -80,17 +80,17 @@ namespace Crolow.Cms.Core.Models.Umbraco
 		// properties
 
 		///<summary>
-		/// Body
+		/// Description
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.1.1+cd47bdb")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("body")]
-		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString Body => GetBody(this, _publishedValueFallback);
+		[ImplementPropertyType("description")]
+		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString Description => GetDescription(this, _publishedValueFallback);
 
-		/// <summary>Static getter for Body</summary>
+		/// <summary>Static getter for Description</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.1.1+cd47bdb")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static global::Umbraco.Cms.Core.Strings.IHtmlEncodedString GetBody(IGenericCard that, IPublishedValueFallback publishedValueFallback) => that.Value<global::Umbraco.Cms.Core.Strings.IHtmlEncodedString>(publishedValueFallback, "body");
+		public static global::Umbraco.Cms.Core.Strings.IHtmlEncodedString GetDescription(IGenericCard that, IPublishedValueFallback publishedValueFallback) => that.Value<global::Umbraco.Cms.Core.Strings.IHtmlEncodedString>(publishedValueFallback, "description");
 
 		///<summary>
 		/// Image
@@ -119,17 +119,17 @@ namespace Crolow.Cms.Core.Models.Umbraco
 		public static global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.Link> GetLinks(IGenericCard that, IPublishedValueFallback publishedValueFallback) => that.Value<global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.Link>>(publishedValueFallback, "links");
 
 		///<summary>
-		/// Subtitle
+		/// Summary
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.1.1+cd47bdb")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("subtitle")]
-		public virtual string Subtitle => GetSubtitle(this, _publishedValueFallback);
+		[ImplementPropertyType("summary")]
+		public virtual string Summary => GetSummary(this, _publishedValueFallback);
 
-		/// <summary>Static getter for Subtitle</summary>
+		/// <summary>Static getter for Summary</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.1.1+cd47bdb")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static string GetSubtitle(IGenericCard that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "subtitle");
+		public static string GetSummary(IGenericCard that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "summary");
 
 		///<summary>
 		/// Title

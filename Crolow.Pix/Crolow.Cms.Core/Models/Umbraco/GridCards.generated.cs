@@ -18,7 +18,7 @@ using Umbraco.Extensions;
 
 namespace Crolow.Cms.Core.Models.Umbraco
 {
-	/// <summary>Grid Cards</summary>
+	/// <summary>Grid cards</summary>
 	[PublishedModel("gridCards")]
 	public partial class GridCards : PublishedElementModel
 	{

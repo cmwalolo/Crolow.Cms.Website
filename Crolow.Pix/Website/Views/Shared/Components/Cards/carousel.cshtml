@@ -1,0 +1,42 @@
+﻿@using Crolow.Cms.Core.HtmlHelpers.Dictionary
+@using Crolow.Cms.Core.Models.ViewModel.Cards;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<CardsModel>
+
+@if (Model != null)
+{
+
+    if (!string.IsNullOrEmpty(Model.Title))
+    {
+        <h2>@(Model.Title)</h2>
+    }
+    if (!string.IsNullOrEmpty(Model.SubTitle))
+    {
+        <p>@Model.SubTitle</p>
+    }
+
+    if (!string.IsNullOrEmpty(Model.Body.ToHtmlString()))
+    {
+        @Model.Body
+    }
+
+    <div id="carousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            @{
+                bool first = true;
+                foreach (var card in Model.Items)
+                {
+                    <div class='carousel-item @(first ? "active" : "")'>
+                        @await Component.InvokeAsync("CardItem", new { content = UmbracoContext.PublishedRequest.PublishedContent, item = card})
+
+                    </div>
+                    first = false;
+                }
+            }
+        </div>
+        <a style="bottom:50px" class="carousel-control-prev" href="#carousel" role="button" data-bs-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span> <span class="visually-hidden">Previous</span> </a>
+        <a style="bottom:50px" class="carousel-control-next" href="#carousel" role="button" data-bs-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span> <span class="visually-hidden">Next</span></a>
+    </div>
+    <div class="row">
+    </div>
+
+}

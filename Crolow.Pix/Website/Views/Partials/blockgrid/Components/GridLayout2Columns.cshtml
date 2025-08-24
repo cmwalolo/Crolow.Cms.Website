@@ -1,17 +1,18 @@
-﻿@using Umbraco.Community.BlockPreview.Extensions
+﻿@using Crolow.Cms.Core.HtmlHelpers.Dictionary
+@using Umbraco.Community.BlockPreview.Extensions
 @using Umbraco.Extensions
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
 @{
     var title = Model.Content.Value("title").ToString();
 }
+<section>
 <div class="mb-0 mb-md-4">
 
     @if (!string.IsNullOrEmpty(title))
     {
         <h2>@title</h2>
+        @Model.Content.Value("description")
     }
-    @Model.Content.Value("description")
-    @* @await Html.GetBlockGridItemAreasHtmlAsync(Model) *@
     @await Html.GetPreviewBlockGridItemAreasHtmlAsync(Model)
 </div>
-
+</section>

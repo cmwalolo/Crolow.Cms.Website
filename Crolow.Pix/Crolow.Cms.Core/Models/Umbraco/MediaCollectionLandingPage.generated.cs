@@ -58,12 +58,12 @@ namespace Crolow.Cms.Core.Models.Umbraco
 		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockGridModel Content => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockGridModel>(_publishedValueFallback, "content");
 
 		///<summary>
-		/// Document summary
+		/// Description
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.1.1+cd47bdb")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("documentSummary")]
-		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString DocumentSummary => this.Value<global::Umbraco.Cms.Core.Strings.IHtmlEncodedString>(_publishedValueFallback, "documentSummary");
+		[ImplementPropertyType("description")]
+		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString Description => global::Crolow.Cms.Core.Models.Umbraco.BasePage.GetDescription(this, _publishedValueFallback);
 
 		///<summary>
 		/// Hint
@@ -72,6 +72,14 @@ namespace Crolow.Cms.Core.Models.Umbraco
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("hint")]
 		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString Hint => global::Crolow.Cms.Core.Models.Umbraco.BasePage.GetHint(this, _publishedValueFallback);
+
+		///<summary>
+		/// Summary
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.1.1+cd47bdb")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("summary")]
+		public virtual string Summary => global::Crolow.Cms.Core.Models.Umbraco.BasePage.GetSummary(this, _publishedValueFallback);
 
 		///<summary>
 		/// Canonical: Used in SEO, see: http://googlewebmastercentral.blogspot.com/2009/02/specify-your-canonical.html

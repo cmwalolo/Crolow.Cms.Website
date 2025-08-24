@@ -18,8 +18,6 @@
 
             <main class="content">
                 <div class="content-sidebar">
-
-
                     <nav>
                         <button class="sidebar-icon" data-title="#navAccueil" data-target="#nav2278" aria-label="Menu">
                             <i class="bi bi-house"></i>
@@ -34,7 +32,7 @@
                             <i class="bi bi-person-circle"></i>
                         </button>
 
-                        <div class="wood sidebar-overlay active" id="nav2278">
+                        <div class="wood sidebar-overlay" id="nav2278">
                             <ul class="overlay-menu">
                                 <li class="wood-dark menu-header"><button class="back-btn" data-target="#nav2278">← Accueil</button></li>
                                 <li class="menu-item"><a href="/crolow/fr/a-propos/" data-target="#nav2279">Qui sommes-nous</a></li>
@@ -121,54 +119,11 @@
                             </ul>
                         </div>
                     </nav>
-
-
                 </div>
-                <!--<div class="content-sidebar">
-                    <nav>
-                        <button class="sidebar-icon" data-target="#navOverlay" aria-label="Menu">
-                            <i class="bi bi-house"></i>
-                        </button>
-                        <button class="sidebar-icon" data-target="#navOverlay" aria-label="Menu">
-                            <i class="bi bi-globe-europe-africa"></i>
-                        </button>
-
-                        <button class="sidebar-icon" data-target="#navOverlay" aria-label="Menu">
-                            <i class="bi bi-cart"></i>
-                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                3
-                            </span>
-                        </button>
-                        <button class="sidebar-icon" data-target="#filtersOverlay" aria-label="Filters">
-                            <i class="bi bi-sliders"></i>
-                        </button>
-                    </nav>
-
-                    <div class="wood sidebar-overlay" id="navOverlay">
-                        <ul class="overlay-menu">
-                            <li class="wood-dark menu-header"><button class="back-btn" data-target="#navSubProducts">&larr; Home</button></li>
-                            <li class="menu-item"><a href="#" data-target="#navSubProducts">Products</button></li>
-                            <li class="menu-item"><button data-target="#navSubAbout">About Us</button></li>
-                        </ul>
-                    </div>
-                </div>-->
-
-                <!-- Filters Overlay -->
-                <div class="sidebar-overlay" id="filtersOverlay">
-                    <div class="overlay-header">
-                        <button class="back-btn btn btn-sm btn-outline-secondary">&larr; Back</button>
-                    </div>
-                    <ul class="overlay-menu">
-                        <li><label><input type="checkbox"> Option 1</label></li>
-                        <li><label><input type="checkbox"> Option 2</label></li>
-                    </ul>
-                </div>
-
-
                 <div class="content-body">
 
                     <div class="banner">
-                        <img src="images/WAAW logo_2023.png" style="width:100%" />
+                        <img src="images/waaw-banner-large.png" style="width:100%" />
                         <div class="punchline-container">
                             <div class="punchline">«Du Sénégal à votre cœur,<br /> des créations qui changent le monde.»</div>
                             <div class="punchline">«Chaque achat, un geste pour la planète.»</div>
@@ -185,9 +140,65 @@
                         </div>
                     </div>
                     <div class="container my-4">
+                        <div id="slicker-1" class="slicker align-items-stretch" data-slides="1,1,1,1">
+                            <div class="card h-100">
+                                <h4 class="card-header">
+                                    Collier argenté
+                                </h4>
+                                <div class="d-flex">
+                                    <div style="width:33.3%" class="p-1">
+                                        <img src="images/collier.jpg" class="card-img img-fluid" alt="">
+                                    </div>
+                                    <div class="d-flex flex-column flex-grow-1 p-3" style="padding:20px;">
+                                        <div class="d-flex justify-content-between">
+                                            <div>
+                                                <p>Une superbe parure en argent avec des motifs tribaux.</p>
+                                                <p>Une superbe parure en argent avec des motifs tribaux.</p>
+                                                <p>Une superbe parure en argent avec des motifs tribaux.</p>
+                                            </div>
+                                            <div class="price d-flex flex-column mb-2">
+                                                <span>€ 34.00</span>
+                                            </div>
+                                        </div>
+                                        <div class="mt-auto d-flex justify-content-end gap-2">
+                                            <a href="#" class="home-btn-small btn btn-primary">Détail</a>
+                                            <a href="#" class="home-btn-small btn btn-primary">Achetez</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card h-100">
+                                <h4 class="card-header">
+                                    Collier argenté
+                                </h4>
+                                <div class="d-flex">
+                                    <div style="width:33.3%" class="p-1">
+                                        <img src="images/collier.jpg" class="card-img img-fluid" alt="">
+                                    </div>
+                                    <div class="d-flex flex-column flex-grow-1 p-3" style="padding:20px;">
+                                        <div class="d-flex justify-content-between">
+                                            <div>
+                                                <p>Une superbe parure en argent avec des motifs tribaux.</p>
+                                                <p>Une superbe parure en argent avec des motifs tribaux.</p>
+                                                <p>Une superbe parure en argent avec des motifs tribaux.</p>
+                                            </div>
+                                            <div class="price d-flex flex-column mb-2">
+                                                <span>€ 34.00</span>
+                                            </div>
+                                        </div>
+                                        <div class="mt-auto d-flex justify-content-end gap-2">
+                                            <a href="#" class="home-btn-small btn btn-primary">Détail</a>
+                                            <a href="#" class="home-btn-small btn btn-primary">Achetez</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container my-4">
                         <h1 class="my-4">Vous aimeriez peut-être aussi ?</h1>
-                        <div class="slicker align-items-stretch">
-                            <div class="card h-100"">
+                        <div id="slicker-2" class="slicker align-items-stretch">
+                            <div class="card h-100">
                                 <div class="card-img">
                                     <img src="images/collier.jpg" class="card-img img-fluid" width="96" height="350" alt="">
                                 </div>
@@ -207,7 +218,7 @@
                                     <a href="#" class="home-btn-small btn btn-primary">Achetez</a>
                                 </div>
                             </div>
-                            <div class="card h-100"">
+                            <div class="card h-100">
                                 <div class="card-img">
                                     <img src="images/bracelet.jpg" class="card-img img-fluid" width="96" height="350" alt="">
                                 </div>
@@ -227,7 +238,7 @@
                                     <a href="#" class="home-btn-small btn btn-primary">Achetez</a>
                                 </div>
                             </div>
-                            <div class="card h-100"">
+                            <div class="card h-100">
                                 <div class="card-img">
                                     <img src="images/bague.jpg" class="card-img img-fluid" width="96" height="350" alt="">
                                 </div>
@@ -247,7 +258,7 @@
                                     <a href="#" class="home-btn-small btn btn-primary">Achetez</a>
                                 </div>
                             </div>
-                            <div class="card h-100"">
+                            <div class="card h-100">
                                 <div class="card-img">
                                     <img src="images/boucle.jpg" class="card-img img-fluid" width="96" height="350" alt="">
                                 </div>
@@ -267,7 +278,7 @@
                                     <a href="#" class="home-btn-small btn btn-primary">Achetez</a>
                                 </div>
                             </div>
-                            <div class="card h-100"">
+                            <div class="card h-100">
                                 <div class="card-img">
                                     <img src="images/collier.jpg" class="card-img img-fluid" width="96" height="350" alt="">
                                 </div>
@@ -287,7 +298,7 @@
                                     <a href="#" class="home-btn-small btn btn-primary">Achetez</a>
                                 </div>
                             </div>
-                            <div class="card h-100"">
+                            <div class="card h-100">
                                 <div class="card-img">
                                     <img src="images/collier.jpg" class="card-img img-fluid" width="96" height="350" alt="">
                                 </div>

@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using Crolow.Cms.Core.Controllers.Api.BasketManagement;
+using Crolow.Cms.Core.HtmlHelpers.Dictionary;
 using Crolow.Cms.Core.Services.Interdaces;
 using Crolow.Cms.Core.Startup.Mvc;
-using Crolow.Cms.Core.Utils.Dictionary;
 using Crolow.Core.Startup.Profiles;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;

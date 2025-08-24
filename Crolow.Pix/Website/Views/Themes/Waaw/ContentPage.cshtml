@@ -1,0 +1,13 @@
+﻿@using Crolow.Cms.Core.HtmlHelpers.Dictionary
+@using Crolow.Cms.Core.Models.Umbraco;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<IPublishedContent>
+@{
+    Layout = "MasterTemplate.cshtml";
+    var v = Model.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockGridModel>("content");
+}
+
+<section class="content-body">
+    @* @await Component.InvokeAsync("breadcrumb", new { content = Umbraco.AssignedContentItem }) *@
+    @await Html.GetBlockGridHtmlAsync(v)
+</section>
+

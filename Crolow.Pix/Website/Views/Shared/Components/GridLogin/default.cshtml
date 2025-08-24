@@ -1,11 +1,15 @@
-﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<GridLogin>;
+﻿
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<GridLogin>;
 
 
+@using Crolow.Cms.Core.Controllers
+@using Crolow.Cms.Core.Controllers.Surface
+@using Crolow.Cms.Core.HtmlHelpers.Dictionary
 @using Crolow.Cms.Core.Models.Umbraco
+@using Umbraco.Cms.Core.Services
 @using Umbraco.Cms.Web.Common.Models
 @using Umbraco.Cms.Web.Common.Security
 @using Umbraco.Cms.Web.Website.Controllers
-@using Umbraco.Cms.Core.Services
 @using Umbraco.Extensions
 @inject IMemberExternalLoginProviders memberExternalLoginProviders
 @inject ITwoFactorLoginService twoFactorLoginService
@@ -16,6 +20,8 @@
     {
         loginModel.RedirectUrl = Umbraco.AssignedContentItem?.Children.FirstOrDefault()?.Url() ?? "";
     }
+
+    var success = TempData["FormSuccess"] != null;
 }
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -23,34 +29,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
 
 
-@if (ViewData.TryGetTwoFactorProviderNames(out var providerNames))
-{
 
-    foreach (var providerName in providerNames)
-    {
-        <div class="2fa-form">
-            <h4>Two factor with @providerName.</h4>
-            <div asp-validation-summary="All" class="text-danger"></div>
-            @using (Html.BeginUmbracoForm<UmbTwoFactorLoginController>(nameof(UmbTwoFactorLoginController.Verify2FACode), new { returnUrl = Umbraco.AssignedContentItem.Url() }))
-            {
-
-                <text>
-                    <input type="hidden" name="provider" value="@providerName" />
-                    Input security code: <input name="code" value="" /><br />
-                    <button type="submit" class="btn btn-primary">Validate</button>
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                </text>
-            }
-        </div>
-    }
-
-}
-else
-{
     <div class="login-form">
 
-        @using (Html.BeginUmbracoForm<UmbLoginController>(
-       "HandleLogin", new { RedirectUrl = loginModel.RedirectUrl }))
+        @using (Html.BeginUmbracoForm<MemberLoginController>(
+        "DoLogin", new { RedirectUrl = loginModel.RedirectUrl }))
         {
 
             <h4>Log in with a local account.</h4>
@@ -77,37 +60,6 @@ else
 
 
         }
-        @{
-            var loginProviders = await memberExternalLoginProviders.GetMemberProvidersAsync();
-            var externalSignInError = ViewData.GetExternalSignInProviderErrors();
 
-            if (loginProviders.Any())
-            {
-                <hr />
-                <h4>Or using external providers</h4>
-                if (externalSignInError?.AuthenticationType is null && externalSignInError?.Errors.Any() == true)
-                {
-                    @Html.DisplayFor(x => externalSignInError.Errors)
-                    ;
-                }
-
-                @foreach (var login in await memberExternalLoginProviders.GetMemberProvidersAsync())
-                {
-
-                    @using (Html.BeginUmbracoForm<UmbTwoFactorLoginController>(nameof(UmbTwoFactorLoginController.Verify2FACode), new { returnUrl = Model.ReturnUrl.Url }))
-                    {
-                        <button type="submit" name="provider" value="@login.ExternalLoginProvider.AuthenticationType">
-                            Sign in with @login.AuthenticationScheme.DisplayName
-                        </button>
-
-                        if (externalSignInError?.AuthenticationType == login.ExternalLoginProvider.AuthenticationType)
-                        {
-                            @Html.DisplayFor(x => externalSignInError.Errors)
-                            ;
-                        }
-                    }
-                }
-            }
-        }
     </div>
 }

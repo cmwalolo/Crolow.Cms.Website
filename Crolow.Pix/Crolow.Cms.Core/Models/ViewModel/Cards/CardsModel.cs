@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Umbraco.Cms.Core.Models;
+﻿using Umbraco.Cms.Core.Models;
 using Umbraco.Cms.Core.Strings;
 
 namespace Crolow.Cms.Core.Models.ViewModel.Cards
 {
     public class CardsModel
     {
-        public string ColumnDefinition { get; set; }
-        public string CssClass { get; set; }
+        public string Template { get; set; }
+
         public List<CardItemModel> Items { get; set; }
         public string Title { get; set; }
         public string SubTitle { get; set; }

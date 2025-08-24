@@ -50,12 +50,12 @@ namespace Crolow.Cms.Core.Models.Umbraco
 		// properties
 
 		///<summary>
-		/// Body
+		/// Description
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.1.1+cd47bdb")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("body")]
-		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString Body => global::Crolow.Cms.Core.Models.Umbraco.GenericCard.GetBody(this, _publishedValueFallback);
+		[ImplementPropertyType("description")]
+		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString Description => global::Crolow.Cms.Core.Models.Umbraco.GenericCard.GetDescription(this, _publishedValueFallback);
 
 		///<summary>
 		/// Image
@@ -74,12 +74,12 @@ namespace Crolow.Cms.Core.Models.Umbraco
 		public virtual global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.Link> Links => global::Crolow.Cms.Core.Models.Umbraco.GenericCard.GetLinks(this, _publishedValueFallback);
 
 		///<summary>
-		/// Subtitle
+		/// Summary
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.1.1+cd47bdb")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("subtitle")]
-		public virtual string Subtitle => global::Crolow.Cms.Core.Models.Umbraco.GenericCard.GetSubtitle(this, _publishedValueFallback);
+		[ImplementPropertyType("summary")]
+		public virtual string Summary => global::Crolow.Cms.Core.Models.Umbraco.GenericCard.GetSummary(this, _publishedValueFallback);
 
 		///<summary>
 		/// Title

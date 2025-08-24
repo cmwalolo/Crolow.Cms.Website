@@ -1,13 +1,9 @@
 ﻿using AutoMapper;
-using Crolow.Cms.Core.Models.Umbraco;
 using Crolow.Cms.Core.Models.ViewModel.Cards;
-using Crolow.Core.Controllers.Pages;
 using Microsoft.AspNetCore.Mvc;
 using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Cms.Core.Routing;
 using Umbraco.Cms.Core.Web;
-using Umbraco.Cms.Web.Common;
-using Umbraco.Extensions;
 
 namespace Crolow.Cms.Core.Components.Cards
 {
@@ -24,9 +20,9 @@ namespace Crolow.Cms.Core.Components.Cards
             this.contextFactory = contextFactory;
             this.urlProvider = urlProvider;
         }
-        public async Task<IViewComponentResult> InvokeAsync(CardsModel card)
+        public async Task<IViewComponentResult> InvokeAsync(IPublishedContent content, CardsModel item)
         {
-            return View(card);
+            return View(item.Template, item);
         }
 
     }

@@ -1,8 +1,11 @@
-﻿@using Crolow.Cms.Core.Models.ViewModel.Cards;
+﻿@using Crolow.Cms.Core.HtmlHelpers.Dictionary
+@using Crolow.Cms.Core.Models.ViewModel.Cards;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<CardsModel>
 
 @if (Model != null)
 {
+    var x =  Model.Items.Count;
+
     if (!string.IsNullOrEmpty(Model.Title))
     {
         <h2>@(Model.Title)</h2>
@@ -13,14 +16,15 @@
     }
     @Model.Body
 
-    <div class="row">
-        @{
-            var x = 12/Model.Items.Count;
+    
 
-            foreach(var card in Model.Items)
+    <div class="row row-cols-1 row-cols-md-@x g-4">
+        @{
+
+            foreach (var card in Model.Items)
             {
-                <div class="col-md-@x">
-                        @await Component.InvokeAsync("CardItem", card)
+                <div class="col">
+                    @await Component.InvokeAsync("CardItem", new { content = UmbracoContext.PublishedRequest.PublishedContent, item = card })
                 </div>
             }
         }

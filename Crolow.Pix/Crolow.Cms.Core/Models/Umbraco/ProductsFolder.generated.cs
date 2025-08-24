@@ -48,5 +48,13 @@ namespace Crolow.Cms.Core.Models.Umbraco
 		}
 
 		// properties
+
+		///<summary>
+		/// Empty
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.1.1+cd47bdb")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("empty")]
+		public virtual string Empty => this.Value<string>(_publishedValueFallback, "empty");
 	}
 }

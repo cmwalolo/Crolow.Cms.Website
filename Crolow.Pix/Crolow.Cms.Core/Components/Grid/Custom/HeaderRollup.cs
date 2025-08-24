@@ -1,13 +1,17 @@
 ﻿using AutoMapper;
+using Crolow.Cms.Core.Extensions;
 using Crolow.Cms.Core.Models.Umbraco;
 using Crolow.Cms.Core.Models.ViewModel.Custom;
+using Crolow.Cms.Core.Services.Interfaces;
+using Umbraco.Cms.Core.Models.Blocks;
 using Umbraco.Cms.Core.Routing;
 using Umbraco.Cms.Core.Web;
-using Umbraco.Extensions;
 
 namespace Crolow.Cms.Core.Components.Grid.Custom
 {
-    public class HeaderRollupCustom : IGridCustomComponentBuilder
+
+
+    public class HeaderRollupCustom : ICustomComponentBuilder
     {
         protected IMapper mapper;
         protected IUmbracoContextFactory contextFactory;
@@ -20,23 +24,24 @@ namespace Crolow.Cms.Core.Components.Grid.Custom
             this.urlProvider = urlProvider;
         }
 
-        public async Task<IEnumerable<object>> GetCustomObject(Models.Umbraco.GridCustomComponent card)
+        public async Task<IEnumerable<object>> GetCustomObject(CustomComponent card, BlockListModel parentProperties)
         {
             var list = new List<HeaderRollupModel>();
             if (card.CustomProperties.Any())
             {
-                var property = card.CustomProperties
-                    .FirstOrDefault(p => p.Content.Value<string>("property") == "Banner");
-                var content = property.Content.Value<HeaderRollup>("value");
-                var item = mapper.Map<HeaderRollupModel>(content);
-                item.Items = new List<Umbraco.Cms.Core.Strings.IHtmlEncodedString>();
-
-                foreach (var i in content.Items)
+                var content = card.GetValue<HeaderRollup>(parentProperties, "Banner");
+                if (content != null)
                 {
-                    item.Items.Add(((RichtextItem)i.Content).Item);
-                }
+                    var item = mapper.Map<HeaderRollupModel>(content);
+                    item.Items = new List<Umbraco.Cms.Core.Strings.IHtmlEncodedString>();
 
-                list.Add(item);
+                    foreach (var i in content.Items)
+                    {
+                        item.Items.Add(((RichtextItem)i.Content).Item);
+                    }
+
+                    list.Add(item);
+                }
             }
 
             return list;

@@ -1,0 +1,20 @@
+﻿@using Crolow.Cms.Core.HtmlHelpers.Dictionary
+@using Crolow.Cms.Core.Models.Umbraco;
+@using Umbraco.Extensions;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem<InspirationBlock, SectionSettingsBlock>>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+
+
+<section class="inspiration">
+    <div class="area-container">
+        <div class="left-area">
+            @await Html.GetBlockGridItemAreaHtmlAsync(Model, "leftArea")
+        </div>
+        <div class="right-area">
+            @await Html.GetBlockGridItemAreaHtmlAsync(Model, "rightArea")
+        </div>
+        <div class="content-area">
+            @await Html.GetBlockGridItemAreaHtmlAsync(Model, "contentArea")
+        </div>
+    </div>
+</section>

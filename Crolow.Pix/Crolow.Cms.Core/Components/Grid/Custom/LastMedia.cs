@@ -1,14 +1,17 @@
 ﻿using AutoMapper;
 using Crolow.Cms.Core.Models.Umbraco;
 using Crolow.Cms.Core.Models.ViewModel.Media;
+using Crolow.Cms.Core.Services.Interfaces;
+using Umbraco.Cms.Core.Models.Blocks;
 using Umbraco.Cms.Core.Routing;
 using Umbraco.Cms.Core.Web;
 using Umbraco.Extensions;
 
 namespace Crolow.Cms.Core.Components.Grid.Custom
 {
-    public class LastMedia : IGridCustomComponentBuilder
+    public class LastMedia : ICustomComponentBuilder
     {
+
         protected IMapper mapper;
         protected IUmbracoContextFactory contextFactory;
         protected IPublishedUrlProvider urlProvider;
@@ -20,7 +23,7 @@ namespace Crolow.Cms.Core.Components.Grid.Custom
             this.urlProvider = urlProvider;
         }
 
-        public async Task<IEnumerable<object>> GetCustomObject(Models.Umbraco.GridCustomComponent card)
+        public async Task<IEnumerable<object>> GetCustomObject(CustomComponent card, BlockListModel parentProperties)
         {
             var nbItems = 5;
             var result = new List<MediaPageModel>();

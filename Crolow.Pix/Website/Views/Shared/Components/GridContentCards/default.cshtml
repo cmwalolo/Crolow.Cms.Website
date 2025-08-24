@@ -1,0 +1,4 @@
+﻿@using Crolow.Cms.Core.HtmlHelpers.Dictionary
+@using Crolow.Cms.Core.Models.ViewModel.Cards;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<CardsModel>
+@await Component.InvokeAsync("Cards", new { content = UmbracoContext.PublishedRequest.PublishedContent, item = Model })

@@ -1,4 +1,6 @@
-﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+﻿@using Crolow.Cms.Core.HtmlHelpers.Dictionary
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
 <footer style="background-color:rgb(39, 43, 48)">
-    @await Component.InvokeAsync("footer", Umbraco.AssignedContentItem)
+    @await Component.InvokeAsync("footer", new { content = UmbracoContext.PublishedRequest.PublishedContent})
+
 </footer>

@@ -1,13 +1,10 @@
 ﻿using AutoMapper;
 using Crolow.Cms.Core.Models.Umbraco;
 using Crolow.Cms.Core.Models.ViewModel.Cards;
-using Crolow.Core.Controllers.Pages;
 using Microsoft.AspNetCore.Mvc;
 using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Cms.Core.Routing;
 using Umbraco.Cms.Core.Web;
-using Umbraco.Cms.Web.Common;
-using Umbraco.Extensions;
 
 namespace Crolow.Cms.Core.Components.Grid
 {
@@ -25,20 +22,14 @@ namespace Crolow.Cms.Core.Components.Grid
             this.urlProvider = urlProvider;
         }
 
-        public async Task<IViewComponentResult> InvokeAsync(GridCards card)
+        public async Task<IViewComponentResult> InvokeAsync(IPublishedContent content, GridCards item)
         {
-            if (card != null)
+            if (item != null)
             {
                 using (var contextReference = contextFactory.EnsureUmbracoContext())
                 {
-                    var item = await GetItemsAsync(card);
-                    if (string.IsNullOrEmpty(card.Template))
-                    {
-                        return View(item);
-                    } else
-                    {
-                        return View(card.Template,item);
-                    }
+                    var cards = await GetItemsAsync(item);
+                    return View((CardsModel?)cards);
                 }
             }
 

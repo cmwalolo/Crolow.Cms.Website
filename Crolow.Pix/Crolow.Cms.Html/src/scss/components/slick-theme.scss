@@ -1,4 +1,4 @@
-﻿@charset "UTF-8";
+@charset "UTF-8";
 
 // Default Variables
 
@@ -101,7 +101,9 @@ $slick-opacity-not-active: 0.25 !default;
 }
 
 .slick-prev {
-    left: -25px;
+    left: 10px;
+    z-index:100;
+    opacity:0.5;
     [dir="rtl"] & {
         left: auto;
         right: -25px;
@@ -115,17 +117,22 @@ $slick-opacity-not-active: 0.25 !default;
 }
 
 .slick-next {
-    right: -25px;
+  right: 10px;
+  z-index: 100;
+  opacity: 0.5;
+
+  [dir="rtl"] & {
+    left: -25px;
+    right: auto;
+  }
+
+  &:before {
+    content: $slick-next-character;
+
     [dir="rtl"] & {
-        left: -25px;
-        right: auto;
+      content: $slick-prev-character;
     }
-    &:before {
-        content: $slick-next-character;
-        [dir="rtl"] & {
-            content: $slick-prev-character;
-        }
-    }
+  }
 }
 
 /* Dots */

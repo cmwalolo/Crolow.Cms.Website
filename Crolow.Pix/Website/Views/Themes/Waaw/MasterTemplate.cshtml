@@ -1,4 +1,5 @@
-﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+﻿@using Crolow.Cms.Core.HtmlHelpers.Dictionary
+@using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
 @{
     Layout = null;
@@ -9,16 +10,16 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="~/waaw/css/waaw.css" rel="stylesheet" />
-    @* <link href="~/waaw/css/myblockgridlayout.css" rel="stylesheet" /> *@
+    <link href="~/waaw/css/myblockgridlayout.css" rel="stylesheet" />
     <script defer="defer" src="~/waaw/js/waaw.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icon-css@4.1.7/css/flag-icons.min.css">
-@*     <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+    @*     <script src="https://code.jquery.com/jquery-3.7.0.min.js"
             integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
             crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
     <script src="~/js/slicker.js"></script>
  *@
-    @await Component.InvokeAsync("Seo", Model)
+    @await Component.InvokeAsync("Seo", new { content = Umbraco.AssignedContentItem})
 
     @RenderSection("Style", false)
 
@@ -33,6 +34,15 @@
     gtag('config', 'G-9VQ01DQRN9');
 </script>
 <body>
+    <script>
+        window.SnipcartSettings = {
+            publicApiKey: 'MjhiNzE4OTktNzAxMy00NzZlLTk3ZTAtNzNhMzE5ZDA5Yzg0NjM3MDc0MTA2OTk3MDg5ODA5',
+            loadStrategy: 'on-user-interaction',
+        };
+
+        (()=>{var c,d;(d=(c=window.SnipcartSettings).version)!=null||(c.version="3.0");var s,S;(S=(s=window.SnipcartSettings).timeoutDuration)!=null||(s.timeoutDuration=2750);var l,p;(p=(l=window.SnipcartSettings).domain)!=null||(l.domain="cdn.snipcart.com");var w,u;(u=(w=window.SnipcartSettings).protocol)!=null||(w.protocol="https");var f=window.SnipcartSettings.version.includes("v3.0.0-ci")||window.SnipcartSettings.version!="3.0"&&window.SnipcartSettings.version.localeCompare("3.4.0",void 0,{numeric:!0,sensitivity:"base"})===-1,m=["focus","mouseover","touchmove","scroll","keydown"];window.LoadSnipcart=o;document.readyState==="loading"?document.addEventListener("DOMContentLoaded",r):r();function r(){window.SnipcartSettings.loadStrategy?window.SnipcartSettings.loadStrategy==="on-user-interaction"&&(m.forEach(t=>document.addEventListener(t,o)),setTimeout(o,window.SnipcartSettings.timeoutDuration)):o()}var a=!1;function o(){if(a)return;a=!0;let t=document.getElementsByTagName("head")[0],e=document.querySelector("#snipcart"),i=document.querySelector(`src[src^="${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}"][src$="snipcart.js"]`),n=document.querySelector(`link[href^="${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}"][href$="snipcart.css"]`);e||(e=document.createElement("div"),e.id="snipcart",e.setAttribute("hidden","true"),document.body.appendChild(e)),v(e),i||(i=document.createElement("script"),i.src=`${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}/themes/v${window.SnipcartSettings.version}/default/snipcart.js`,i.async=!0,t.appendChild(i)),n||(n=document.createElement("link"),n.rel="stylesheet",n.type="text/css",n.href=`${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}/themes/v${window.SnipcartSettings.version}/default/snipcart.css`,t.prepend(n)),m.forEach(g=>document.removeEventListener(g,o))}function v(t){!f||(t.dataset.apiKey=window.SnipcartSettings.publicApiKey,window.SnipcartSettings.addProductBehavior&&(t.dataset.configAddProductBehavior=window.SnipcartSettings.addProductBehavior),window.SnipcartSettings.modalStyle&&(t.dataset.configModalStyle=window.SnipcartSettings.modalStyle),window.SnipcartSettings.currency&&(t.dataset.currency=window.SnipcartSettings.currency),window.SnipcartSettings.templatesUrl&&(t.dataset.templatesUrl=window.SnipcartSettings.templatesUrl))}})();
+    </script>
+
     <div class="page-body">
         <div class="page-layout">
 
@@ -40,44 +50,6 @@
             <main class="content">
                 <div class="content-sidebar">
                     @await Component.InvokeAsync("fixednavigation", new { content = Umbraco.AssignedContentItem, code = "main" })
-
-@*                     <nav>
-                        <button class="sidebar-icon" data-target="#navOverlay" aria-label="Menu">
-                            <i class="bi bi-house"></i>
-                        </button>
-                        <button class="sidebar-icon" data-target="#navOverlay" aria-label="Menu">
-                            <i class="bi bi-globe-europe-africa"></i>
-                        </button>
-
-                        <button class="sidebar-icon" data-target="#navOverlay" aria-label="Menu">
-                            <i class="bi bi-cart"></i>
-                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                3
-                            </span>
-                        </button>
-                        <button class="sidebar-icon" data-target="#filtersOverlay" aria-label="Filters">
-                            <i class="bi bi-sliders"></i>
-                        </button>
-                    </nav>
-
-                    <div class="sidebar-overlay" id="navOverlay">
-                        <ul class="overlay-menu">
-                            <li class="menu-header"><button class="back-btn" data-target="#navSubProducts">&larr; Home</button></li>
-                            <li class="menu-item"><button data-target="#navSubProducts">Products</button></li>
-                            <li class="menu-item"><button data-target="#navSubAbout">About Us</button></li>
-                        </ul>
-                    </div> *@
-                </div>
-
-                <!-- Filters Overlay -->
-                <div class="sidebar-overlay" id="filtersOverlay">
-                    <div class="overlay-header">
-                        <button class="back-btn btn btn-sm btn-outline-secondary">&larr; Back</button>
-                    </div>
-                    <ul class="overlay-menu">
-                        <li><label><input type="checkbox"> Option 1</label></li>
-                        <li><label><input type="checkbox"> Option 2</label></li>
-                    </ul>
                 </div>
 
                 @RenderBody()

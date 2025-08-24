@@ -3,6 +3,20 @@ import path from "path"
 import MiniCssExtractPlugin from "mini-css-extract-plugin"
 import HtmlWebpackPlugin from "html-webpack-plugin"
 import CopyPlugin from "copy-webpack-plugin"
+import fs from "fs";
+
+
+// auto-generate HtmlWebpackPlugin for every .html in src/templates
+const templateDir = path.resolve(process.cwd(), "./src/templates")
+const htmlPlugins = fs.readdirSync(templateDir)
+  .filter(file => file.endsWith(".html"))
+  .map(file => new HtmlWebpackPlugin({
+    template: path.join(templateDir, file),
+    filename: file,     // output name
+    chunks: ["waaw"],   // inject your entry (change if multiple entries later)
+  }))
+
+
 
 //const denseCss = new ExtractTextWebpackPlugin("default.css");
 //const sparseCss = new ExtractTextWebpackPlugin("crolow.css");
@@ -100,11 +114,11 @@ export default {
 
       ]
     }),
-
+    ...htmlPlugins
     // Inject styles and scripts into the HTML
-    new HtmlWebpackPlugin({
-      template: path.resolve(process.cwd(), "./src/templates/index.html")
-    })
+    //new HtmlWebpackPlugin({
+    //  template: path.resolve(process.cwd(), "./src/templates/**/*.html")
+    //})
   ],
 
   // Configure the "webpack-dev-server" plugin

@@ -1,9 +1,10 @@
-﻿@using Crolow.Cms.Core.Models.Umbraco;
+﻿@using Crolow.Cms.Core.HtmlHelpers.Dictionary
+@using Crolow.Cms.Core.Models.Umbraco;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem<HeroBlock>>
 @{
-    var backgroundColor = Model.Content.BackgroundColor;
+    var backgroundColor = "#000000"; //Model.Content.BackgroundColor;
     var image = Model.Content.Image;
-    var hasBrightContrast = Model.Content.Contrast == "ffffff";
+    var hasBrightContrast = false; //  Model.Content.Contrast == "ffffff";
 }
 
 <div 

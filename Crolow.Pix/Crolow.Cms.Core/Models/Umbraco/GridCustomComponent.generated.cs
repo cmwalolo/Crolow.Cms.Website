@@ -18,7 +18,7 @@ using Umbraco.Extensions;
 
 namespace Crolow.Cms.Core.Models.Umbraco
 {
-	/// <summary>GridCustomComponent</summary>
+	/// <summary>Grid custom component</summary>
 	[PublishedModel("gridCustomComponent")]
 	public partial class GridCustomComponent : PublishedElementModel
 	{
@@ -50,23 +50,15 @@ namespace Crolow.Cms.Core.Models.Umbraco
 		// properties
 
 		///<summary>
-		/// Assembly
+		/// Custom component definition
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.1.1+cd47bdb")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("assembly")]
-		public virtual string Assembly => this.Value<string>(_publishedValueFallback, "assembly");
+		[ImplementPropertyType("customComponentDefinition")]
+		public virtual global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent> CustomComponentDefinition => this.Value<global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent>>(_publishedValueFallback, "customComponentDefinition");
 
 		///<summary>
-		/// Component: Enter fulll object name to be called
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.1.1+cd47bdb")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("component")]
-		public virtual string Component => this.Value<string>(_publishedValueFallback, "component");
-
-		///<summary>
-		/// Custom Properties
+		/// Properties
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.1.1+cd47bdb")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
@@ -74,7 +66,15 @@ namespace Crolow.Cms.Core.Models.Umbraco
 		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel CustomProperties => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(_publishedValueFallback, "customProperties");
 
 		///<summary>
-		/// Template
+		/// External view component
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.1.1+cd47bdb")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("externalViewComponent")]
+		public virtual string ExternalViewComponent => this.Value<string>(_publishedValueFallback, "externalViewComponent");
+
+		///<summary>
+		/// Template: You can overwrite the template to be used
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.1.1+cd47bdb")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]

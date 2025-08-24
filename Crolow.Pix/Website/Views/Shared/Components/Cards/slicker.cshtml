@@ -1,8 +1,11 @@
-﻿@using Crolow.Cms.Core.Models.ViewModel.Cards;
+﻿@using Crolow.Cms.Core.HtmlHelpers.Dictionary
+@using Crolow.Cms.Core.Models.ViewModel.Cards;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<CardsModel>
 
 @if (Model != null)
 {
+    int id = System.Random.Shared.Next(1000);
+
     if (!string.IsNullOrEmpty(Model.Title))
     {
         <h2>@(Model.Title)</h2>
@@ -11,15 +14,17 @@
     {
         <p>@Model.SubTitle</p>
     }
+
     @Model.Body
 
-    <div class="row">
+    <div id="slicker-@id" class="slicker align-items-stretch">
         @{
             foreach (var card in Model.Items)
             {
-                @await Component.InvokeAsync("CardItem", card)
+                <div class="col">
+                    @await Component.InvokeAsync("CardItem", new { content = UmbracoContext.PublishedRequest.PublishedContent, item = card })
+                </div>
             }
         }
     </div>
-
 }

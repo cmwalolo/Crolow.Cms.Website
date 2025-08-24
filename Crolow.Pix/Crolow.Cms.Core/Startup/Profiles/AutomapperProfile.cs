@@ -126,6 +126,10 @@ namespace Crolow.Core.Startup.Profiles
             CreateMap<GridCards, CardsModel>()
                 .ForMember(p => p.Items, o => o.MapFrom(p => p.Cards));
 
+            CreateMap<GridContentCards, CardsModel>()
+                .ForMember(p => p.Items, o => o.Ignore());
+
+
             CreateMap<BasicCard, CardItemModel>()
                 .ForMember(p => p.CardType, o => o.MapFrom(p => "Default"))
                 .ForMember(p => p.Image, o => o.MapFrom(p => GetMediaCropUrl(p.Image)));

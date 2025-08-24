@@ -114,7 +114,7 @@
 
 
 section {
-    padding: var(--section-padding, 60px 0);
+    padding-top: var(--section-padding, 30px 0);
 }
 
     section[bright-contrast] {
@@ -129,41 +129,6 @@ section {
     padding-top: 0;
 }
 
-h1 {
-    font-size: 60px;
-    font-weight: 300;
-    line-height: 0.96;
-    margin: 0;
-    margin-bottom: 20px;
-    /*color: inherit;*/
-}
-
-h2 {
-    font-size: 35px;
-    font-weight: 300;
-    line-height: 1.2;
-    margin: 0;
-    margin-bottom: 20px;
-    /*color: inherit*/;
-}
-
-*umb_name:H3
-h3 {
-    font-size: 30px;
-    font-weight: 300;
-    line-height: 1.2;
-    margin: 0;
-    /*color: inherit*/;
-}
-
-*umb_name:H4
-h4 {
-    font-size: 21px;
-    font-weight: 300;
-    line-height: 1.2;
-    margin: 0;
-    /*color: inherit;*/
-}
 
 
 
@@ -336,67 +301,3 @@ p.lead-paragraph {
 
 
 
-/*Card*/
-
-.card {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    margin-bottom: 20px;
-    /*    color: black;
-    background-color: white;
-*/
-}
-
-    .card .card-img {
-        width: 100%;
-    }
-
-    .card .card-media {
-        position: relative;
-        width: 100%;
-        /*aspect-ratio: 16 / 9;*/
-        overflow: hidden;
-    }
-
-        .card .card-media img {
-            object-fit: cover;
-            height: 100%;
-            width: 100%;
-        }
-
-    .card .card-content {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        padding: 20px;
-        font-weight: 300;
-    }
-
-        .card .card-content p {
-            margin: 0;
-        }
-
-
-    .card.--medium {
-        height: auto;
-    }
-
-        .card.--medium .card-media::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            /*background-color: rgba(0,0,0,.22);*/
-            pointer-events: none;
-        }
-
-        .card.--medium .card-content {
-            position: absolute;
-            z-index: 1;
-            bottom: 0;
-            color: white;
-        }
-
-            .card.--medium .card-content h4 {
-                font-size: 30px;
-            }

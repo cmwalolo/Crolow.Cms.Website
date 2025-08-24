@@ -1,101 +1,119 @@
-﻿@using Crolow.Cms.Core.Models.ViewModel.Navigation;
-@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<SeoModel>
-@{
-    @if (!string.IsNullOrEmpty(Model.PageTitle))
-    {
-        <title>@(Model.PageTitle)</title>
-    }
+﻿@using Crolow.Cms.Core.HtmlHelpers.Dictionary
+@using Crolow.Cms.Core.Models.ViewModel.Navigation
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<IPublishedContent>;
 
-    @if (!string.IsNullOrEmpty(Model.Canonical))
-    {
-        <link rel="canonical" href="@(Model.Canonical)">
-    }
-
-    @if (!string.IsNullOrEmpty(Model.MetaAuthor))
-    {
-        <meta name="author" content="@(Model.MetaAuthor)">
-    }
-
-    @if (!string.IsNullOrEmpty(Model.MetaDescription))
-    {
-        <meta name="description" content="@(Model.MetaDescription.StripHtml().StripNewLines())">
-    }
-
-    @if (Model.MetaKeywords != null && Model.MetaKeywords.Any())
-    {
-        var keywordsValue = string.Join(", ", Model.MetaKeywords);
-        <meta name="keywords" content="@keywordsValue">
-    }
-
-    @if (!string.IsNullOrEmpty(Model.MetaTagBlock))
-    {
-        @Html.Raw((Model.MetaTagBlock))
-    }
-
-    @if (!string.IsNullOrEmpty(Model.OGUrl))
-    {
-        <meta property="og:url" content="@(Model.OGUrl)">
-    }
-
-    @if (!string.IsNullOrEmpty(Model.OGType))
-    {
-        <meta property="og:type" content="@(Model.OGType)">
-    }
-
-    @if (!string.IsNullOrEmpty(Model.OGTitle))
-    {
-        <meta property="og:title" content="@(Model.OGTitle)">
-    }
-
-    @if (!string.IsNullOrEmpty(Model.OGDescription))
-    {
-        <meta property="og:description" content="@(Model.OGDescription.StripHtml().StripNewLines())">
-    }
+<!--SEO-->
+@if (Model.HasProperty("pageTitle") && Model.HasValue("pageTitle"))
+{
+    <title>@(Model.Value("pageTitle"))</title>
+}
 
 
-    @if (!string.IsNullOrEmpty(Model.OGImage))
-    {
-        <meta property="og:image" content="@Model.OGImage">
-    }
+@if (Model.HasProperty("canonical") && Model.HasValue("canonical"))
+{
+    <link rel="canonical" href="@(Model.Value("canonical"))">
+}
 
-    @if (!string.IsNullOrEmpty(Model.FBAppId))
-    {
-        <meta property="fb:app_id" content="@(Model.FBAppId)">
-    }
+@if (Model.HasProperty("author") && Model.HasValue("author"))
+{
+    <meta name="author" content="@(Model.Value("author"))">
+}
 
-    @if (!string.IsNullOrEmpty(Model.OGLocale))
-    {
-        <meta property="og:locale" content="@(Model.OGLocale)">
-    }
+@if (Model.HasProperty("metaDescription") && Model.HasValue("metaDescription"))
+{
+    <meta name="description" content="@(Model.Value("metaDescription"))">
+}
 
-    <!--Twitter Cards-->
-    @if (!string.IsNullOrEmpty(Model.TwitterCardType))
-    {
-        <meta name="twitter:card" content="@(Model.TwitterCardType))">
-    }
+@if (Model.HasValue("metaKeywords") && Model.HasValue("metaKeywords"))
+{
+    var keywordsValue = string.Join(", ", Model.Value<System.String[]>("metaKeywords"));
+    <meta name="keywords" content="@keywordsValue">
+}
 
-    @if (!string.IsNullOrEmpty(Model.TwitterSite))
-    {
-        <meta name="twitter:site" content="@(Model.TwitterSite)">
-    }
 
-    @if (!string.IsNullOrEmpty(Model.TwitterTitle))
-    {
-        <meta name="twitter:title" content="@(Model.TwitterTitle)">
-    }
+@if (Model.HasProperty("metaKeywords") && Model.HasValue("metaKeywords"))
+{
+    string[] keywordsValue = Model.Value<string[]>("metaKeywords");
+    var keywords = (keywordsValue == null ? "" : String.Join(",", keywordsValue));
+    <meta name="keywords" content="@keywords" />
+}
 
-    @if (!string.IsNullOrEmpty(Model.TwitterDescription))
-    {
-        <meta name="twitter:description" content="@(Model.TwitterDescription.StripHtml().StripNewLines())">
-    }
+@if (Model.HasProperty("metaTagBlock") && Model.HasValue("metaTagBlock"))
+{
+    @Html.Raw((Model.Value("metaTagBlock")))
+}
 
-    @if (!string.IsNullOrEmpty(Model.TwitterImage))
-    {
-        <meta Name="twitter:image" content="@Model.TwitterImage">
-    }
+@if (Model.HasProperty("oGURL") && Model.HasValue("oGURL"))
+{
+    <meta property="og:url" content="@(Model.Value<string>("oGURL"))">
+}
 
-    @if (!string.IsNullOrEmpty(Model.TwitterImageAlt))
+@if (Model.HasProperty("type") && Model.HasValue("type"))
+{
+    <meta property="og:type" content="@(Model.Value<string>("type"))">
+}
+
+@if (Model.HasProperty("oGTitle") && Model.HasValue("oGTitle"))
+{
+    <meta property="og:title" content="@(Model.Value("oGTitle"))">
+}
+
+@if (Model.HasProperty("oGDescription") && Model.HasValue("oGDescription"))
+{
+    <meta property="og:description" content="@(Model.Value("oGDescription"))">
+}
+
+@if (Model.HasProperty("OGImage") && Model.HasValue("OGImage"))
+{
+    var OGImage = Model.Value<IPublishedContent>("OGImage");
+    if (OGImage != null)
     {
-        <meta Name="twitter:image:alt" content="@(Model.TwitterImageAlt)">
+        <meta property="og:image" content="@OGImage.Url(mode: UrlMode.Absolute)">
     }
 }
+
+@if (Model.HasProperty("FBAppID") && Model.HasValue("FBAppID"))
+{
+    <meta property="fb:app_id" content="@(Model.Value<string>("FBAppID"))">
+}
+@if (Model.HasProperty("locale") && Model.HasValue("locale"))
+{
+    <meta property="og:locale" content="@(Model.Value<string>("locale"))">
+}
+
+<!--Twitter Cards-->
+@if (Model.HasProperty("cardType") && Model.HasValue("cardType"))
+{
+    <meta name="twitter:card" content="@(Model.Value<string>("cardType"))">
+}
+@if (Model.HasProperty("site") && Model.HasValue("site"))
+{
+    <meta name="twitter:site" content="@(Model.Value<string>("site"))">
+}
+
+@if (Model.HasProperty("twittertitle") && Model.HasValue("twittertitle"))
+{
+    <meta name="twitter:title" content="@(Model.Value("twittertitle"))">
+}
+
+@if (Model.HasProperty("twitterdescription") && Model.HasValue("twitterdescription"))
+{
+    <meta name="twitter:description" content="@(Model.Value("twitterdescription"))">
+}
+
+@if (Model.HasProperty("twitterimage") && Model.HasValue("twitterimage"))
+{
+    var TwitterImage = Model.Value<IPublishedContent>("twitterimage");
+    if (TwitterImage != null)
+    {
+        <meta Name="twitter:image" content="@TwitterImage.Url(mode: UrlMode.Absolute)">
+    }
+}
+
+@if (Model.HasProperty("twitterImageAlt") && Model.HasValue("twitterImageAlt"))
+{
+    <meta Name="twitter:image:alt" content="@(Model.Value("twitterImageAlt"))">
+}
+
+
+<!--/SEO-->

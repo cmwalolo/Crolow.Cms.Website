@@ -1,6 +1,8 @@
-﻿@using Umbraco.Cms.Core.Models.Blocks
-@using Crolow.Cms.Core.Extensions;
-
+﻿@using Crolow.Cms.Core.Extensions;
+@using Crolow.Cms.Core.HtmlHelpers.Dictionary
+@using Microsoft.AspNetCore.Mvc.ViewComponents
+@using Umbraco.Cms.Core.Models.Blocks
+@inject IViewComponentSelector ViewComponentSelector
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<IEnumerable<BlockGridItem>>
 @{
     if (Model?.Any() != true) { return; }
@@ -20,31 +22,35 @@
             style=" --umb-block-grid--item-column-span: @item.ColumnSpan; --umb-block-grid--item-row-span: @item.RowSpan; ">
             @{
                 var partialViewName = "~/Views/Partials/blockgrid/Components/" + item.Content.ContentType.Alias + ".cshtml";
+                var alias = item.Content.ContentType.Alias;
                 try
                 {
-                    if (item != null)
+                    if (ViewComponentSelector.SelectComponent(alias) != null)
                     {
-
-                        if (this.Context.ViewExists(partialViewName))
-                        {
-                            @await Html.PartialAsync(partialViewName, item)
-                        }
-                        else
-                        {
-                            @await Component.InvokeAsync(item.Content.ContentType.Alias, item.Content)
-                        }
+                        @await Component.InvokeAsync(alias, new { content = UmbracoContext.PublishedRequest.PublishedContent, item = item.Content })
+                        // ✅ Prefer component if it exists
+                    }
+                    else if (this.Context.ViewExists(partialViewName))
+                    {
+                        // ✅ Fall back to partial if no component
+                        @await Html.PartialAsync(partialViewName, item)
+                    }
+                    else
+                    {
+                        <p>
+                            <strong>Could not render component of type: @alias</strong><br />
+                            No component and no partial view found at <em>@partialViewName</em>.
+                        </p>
                     }
                 }
-                catch (InvalidOperationException ex)
+                catch (Exception ex)
                 {
                     <p>
-                        <strong>Could not render component of type: @(item.Content.ContentType.Alias)</strong>
-                        <br />
-                        This likely happened because the partial view <em>@partialViewName</em> could not be found.
+                        <strong>Error rendering block: @alias</strong>
                     </p>
                     <p>@ex.Message</p>
-                    <p>@ex.StackTrace</p>
                 }
+
             }
         </div>
     }
