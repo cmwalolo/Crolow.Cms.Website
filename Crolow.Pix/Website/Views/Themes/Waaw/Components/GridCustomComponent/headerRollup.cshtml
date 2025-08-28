@@ -8,7 +8,15 @@
     var firstItem = Model?.FirstOrDefault() as HeaderRollupModel;
 
     <div class="rollup @(string.IsNullOrEmpty(firstItem.CssClass) ? "banner" : firstItem.CssClass)">
-        <img src="@firstItem.Image" />
+        <img class="banner-bg" src="@firstItem.Image"/>
+        @if (!string.IsNullOrEmpty(firstItem.ImageLogo))
+        {
+            <img class="banner-logo" src="@firstItem.ImageLogo" />
+        }
+        @if (!string.IsNullOrEmpty(firstItem.ImageTitle))
+        {
+            <img class="banner-title" src="@firstItem.ImageTitle" />
+        }
         <div class="punchline-container">
             @foreach (var s in firstItem.Items)
             {

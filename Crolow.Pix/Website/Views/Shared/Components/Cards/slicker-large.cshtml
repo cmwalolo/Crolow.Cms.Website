@@ -14,7 +14,10 @@
         <p>@Model.SubTitle</p>
     }
 
-    @Model.Body
+    if (!Model.Body.IsNullOrWhiteSpace())
+    {
+        @Model.Body
+    }
 
     @* <div class="mx-4"> *@
 

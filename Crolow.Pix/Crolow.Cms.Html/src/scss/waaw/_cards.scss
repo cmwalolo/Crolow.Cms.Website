@@ -1,0 +1,45 @@
+.card-header {
+  background-color: #222;
+}
+
+.card-headline .card-header {
+  border-bottom: #9e0d0d 3px solid;
+}
+
+
+.card-footer {
+  background-color: $gray-900;
+}
+
+
+
+.card-img-top {
+  background-color: black;
+}
+
+.card {
+  .price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-left: 20px;
+    margin-right: 20px;
+    text-wrap: nowrap;
+  }
+
+  .text {
+    font-size: 1rem;
+
+    h5 {
+      font-size: 1.3rem;
+    }
+  }
+}
+
+.card-footer {
+  text-align: right;
+}
+
+
+.card-text {
+  /*padding: 10px;*/
+}

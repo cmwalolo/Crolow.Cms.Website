@@ -1,7 +1,7 @@
 ﻿using Crolow.Cms.Core.Models.Schemas;
 using Crolow.Cms.Core.Models.ViewModel.Basket;
 
-namespace Crolow.Cms.Core.Services.Interdaces
+namespace Crolow.Cms.Core.Services.Interfaces
 {
     public interface ICrolowBasketService
     {

@@ -38,7 +38,7 @@ namespace Crolow.Cms.Core.Components.GlobalPageElements
 
             MenuItemModel root = new MenuItemModel();
             root.Children.Add(newItem);
-            root.Children.AddRange(GetDescendants(newItem));
+            root.Children.AddRange(GetDescendants(newItem).Where(p => p.Children.Any()));
 
             return View(root);
         }

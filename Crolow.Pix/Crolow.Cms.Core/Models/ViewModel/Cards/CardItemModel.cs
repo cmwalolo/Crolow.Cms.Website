@@ -1,17 +1,19 @@
-﻿using Crolow.Cms.Core.Models.Enumerations;
+﻿using Crolow.Cms.Core.Interfaces;
+using Crolow.Cms.Core.Models.Enumerations;
 using Umbraco.Cms.Core.Strings;
 
 namespace Crolow.Cms.Core.Models.ViewModel.Cards
 {
-    public class LinkModel
+    public class ProductCardItemModel : CardItemModel
     {
-        public string LinkType { get; set; }
-        public string Url { get; set; }
-        public string Target { get; set; }
-        public string Title { get; set; }
+
     }
-    public class CardItemModel
+
+    public class CardItemModel : ICachableComponentModel
     {
+        public int OriginId { get; set; }
+        public long OriginVersion { get; set; }
+        public string ParentTemplate { get; set; }
         public CardType CardType { get; set; }
         public CardSize CardTypeSize { get; set; }
 

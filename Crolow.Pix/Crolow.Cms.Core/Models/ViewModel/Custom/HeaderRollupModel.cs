@@ -6,6 +6,8 @@ namespace Crolow.Cms.Core.Models.ViewModel.Custom
     {
         public string CssClass { get; set; }
         public string Image { get; set; }
+        public string ImageLogo { get; set; }
+        public string ImageTitle { get; set; }
         public List<IHtmlEncodedString> Items { get; set; }
         public string Template { get; set; }
 

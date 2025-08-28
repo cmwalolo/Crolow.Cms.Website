@@ -6,6 +6,7 @@ namespace Crolow.Cms.Core.Models.ViewModel.Cards
     public class CardsModel
     {
         public string Template { get; set; }
+        public bool PropagateTemplate { get; set; }
 
         public List<CardItemModel> Items { get; set; }
         public string Title { get; set; }

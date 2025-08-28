@@ -14,7 +14,10 @@
     {
         <p>@Model.SubTitle</p>
     }
-    @Model.Body
+    if (!Model.Body.IsNullOrWhiteSpace())
+    {
+        @Model.Body
+    }
 
     
 
@@ -24,7 +27,7 @@
             foreach (var card in Model.Items)
             {
                 <div class="col">
-                    @await Component.InvokeAsync("CardItem", new { content = UmbracoContext.PublishedRequest.PublishedContent, item = card })
+                    @await Component.InvokeAsync("CardItem", new { content = UmbracoContext.PublishedRequest.PublishedContent, item = card as CardItemModel })
                 </div>
             }
         }

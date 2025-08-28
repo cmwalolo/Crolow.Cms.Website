@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
+using Crolow.Cms.Core.Interfaces;
 using Crolow.Cms.Core.Models.Umbraco;
-using Crolow.Cms.Core.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;

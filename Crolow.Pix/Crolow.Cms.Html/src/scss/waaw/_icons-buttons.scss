@@ -1,0 +1,34 @@
+.bi {
+  background: linear-gradient(90deg, #ff7e5f, rgb(234,189,84)); /*#feb47b);*/
+  -webkit-background-clip: text; /* Needed for Safari and Chrome */
+  -webkit-text-fill-color: transparent; /* Makes the text show the background */
+}
+
+.bi-large {
+  font-zise: 26pt;
+}
+
+
+.btn-primary {
+  color: $white;
+  //  background-color: $red;
+  font-weight: bold;
+  --h: 23; /* hue: 20–45 = oak/pine, 15–25 = teak, 8–15 = walnut */
+  --s: 45%;
+  --l1: 20%;
+  --l2: 20%;
+  background: repeating-linear-gradient(45deg, hsla(var(--h),20%,20%,.06) 0 9px, hsla(var(--h),20%,20%,0) 9px 18px), linear-gradient(to right, hsl(var(--h) var(--s) var(--l1)), hsl(var(--h) var(--s) var(--l2)), hsl(var(--h) var(--s) var(--l1)));
+  background-blend-mode: overlay, normal;
+}
+
+
+.home-btn-large {
+  width: 100%;
+  padding: 5px;
+}
+
+.home-btn-small {
+  padding: 5px;
+  margin-left: 10px;
+  text-align: right;
+}

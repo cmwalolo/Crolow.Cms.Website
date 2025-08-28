@@ -1,0 +1,44 @@
+
+.slick-dots li button:before, .slick-dots li.slick-active button:before {
+  color: white;
+}
+
+.slick-initialized .card-body {
+  height: 150px;
+
+  @media screen and (max-width: 767px) {
+    height: 180px;
+  }
+}
+
+.slicker .card {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* optional, if using equalizer JS */
+}
+
+/* Make the card-text take up available space */
+.slicker .card-text {
+  flex: 1 1 auto;
+  padding-bottom: 50px;
+}
+
+.slicker .card-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.slicker .text p {
+    margin:0px;
+}
+
+.slick-prev
+{
+    left:-10px;
+}
+
+.slick-next {
+  right: -10px;
+}

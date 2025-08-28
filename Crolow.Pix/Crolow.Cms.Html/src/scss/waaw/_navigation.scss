@@ -1,0 +1,34 @@
+.navbar-nav {
+  width: 100%;
+}
+
+.pagination {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.page-link.disabled, .disabled > .page-link {
+  color: black;
+  background: -webkit-gradient(linear, left top, right top, from(#ffffff), to(rgb(234, 189, 84)));
+  background: linear-gradient(45deg, #ffffff, rgb(234, 189, 84));
+  font-size: 1rem;
+  margin-right: 10px;
+}
+
+.page-link.active, .active > .page-link {
+  z-index: 3;
+  color: var(--bs-pagination-active-color);
+  border-color: var(--bs-pagination-active-border-color);
+  --h: 20; /* hue: 20–45 = oak/pine, 15–25 = teak, 8–15 = walnut */
+  --s: 45%;
+  --l1: 38%;
+  --l2: 30%;
+  background:
+  /* fine grain only */
+  repeating-linear-gradient(0deg, hsla(var(--h),20%,20%,.06) 0 2px, hsla(var(--h),20%,20%,0) 3px 6px), linear-gradient(to right, hsl(var(--h) var(--s) var(--l1)), hsl(var(--h) var(--s) var(--l2)), hsl(var(--h) var(--s) var(--l1)));
+  background-blend-mode: overlay, normal;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1rem;
+  margin-right: 10px;
+}

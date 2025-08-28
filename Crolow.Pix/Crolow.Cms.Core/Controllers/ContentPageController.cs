@@ -7,13 +7,6 @@ using Umbraco.Cms.Web.Common.Controllers;
 
 namespace UmbracoProject.Controller
 {
-    public class ProductPageController(
-        ILogger<RenderController> logger,
-        ICompositeViewEngine compositeViewEngine,
-        IUmbracoContextAccessor umbracoContextAccessor)
-        : ContentPageController(logger, compositeViewEngine, umbracoContextAccessor)
-    {
-    }
 
     [ResponseCache(CacheProfileName = "Default")]
     public class ContentPageController : BaseMvcController

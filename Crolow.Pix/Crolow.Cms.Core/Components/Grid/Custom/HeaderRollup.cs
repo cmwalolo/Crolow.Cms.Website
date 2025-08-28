@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using Crolow.Cms.Core.Extensions;
+using Crolow.Cms.Core.Interfaces;
 using Crolow.Cms.Core.Models.Umbraco;
 using Crolow.Cms.Core.Models.ViewModel.Custom;
-using Crolow.Cms.Core.Services.Interfaces;
 using Umbraco.Cms.Core.Models.Blocks;
 using Umbraco.Cms.Core.Routing;
 using Umbraco.Cms.Core.Web;

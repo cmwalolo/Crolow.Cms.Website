@@ -1,7 +1,8 @@
 ﻿using AutoMapper;
 using Crolow.Cms.Core.Controllers.Api.BasketManagement;
 using Crolow.Cms.Core.HtmlHelpers.Dictionary;
-using Crolow.Cms.Core.Services.Interdaces;
+using Crolow.Cms.Core.Services.Implementations;
+using Crolow.Cms.Core.Services.Interfaces;
 using Crolow.Cms.Core.Startup.Mvc;
 using Crolow.Core.Startup.Profiles;
 using Microsoft.AspNetCore.Mvc;
@@ -60,6 +61,7 @@ namespace Crolow.CMS.Core.Startup.Composers
             builder.Services.AddScoped<IDictionaryLocalizer, DictionaryLocalizer>();
 
             builder.Services.AddSingleton<ICrolowBasketService, CrolowBasketService>();
+            builder.Services.AddSingleton<IProductContentSearchService, ProductContentSearchService>();
         }
 
         private void AddDependencies(IUmbracoBuilder builder)

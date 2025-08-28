@@ -17,6 +17,12 @@ namespace Crolow.Core.Startup.Profiles
 {
     public class AutomapperProfile : Profile
     {
+        string[] menuFallBackvalues = new string[] { "menuDisplayName", "pageTitle", "title", "Name" };
+        string[] titleFallBackvalues = new string[] { "pageTitle", "Name" };
+        string cardImageSize = "height=600&rmode=max";
+
+
+
         protected IPublishedUrlProvider urlProvider;
         public AutomapperProfile()
         {
@@ -29,6 +35,7 @@ namespace Crolow.Core.Startup.Profiles
             RegisterCrolowBasket();
             RegisterSeo();
             RegisterCustom();
+            RegisterProductModels();
         }
 
         private void RegisterSeo()
@@ -99,11 +106,13 @@ namespace Crolow.Core.Startup.Profiles
 
         }
 
-
         private void RegisterNavigation()
         {
             var map = CreateMap<IPublishedContent, MenuItemModel>()
-                .ForMember(p => p.Title, o => o.MapFrom(p => (p is ISEO && !string.IsNullOrEmpty(((ISEO)p).PageTitle)) ? ((ISEO)p).PageTitle : p.Name))
+                .ForMember(dest => dest.Title,
+                            opt => opt.MapFrom(new StringPropertyFallBackResolver<MenuItemModel>(menuFallBackvalues)))
+                .ForMember(dest => dest.PageTitle,
+                            opt => opt.MapFrom(new StringPropertyFallBackResolver<MenuItemModel>(titleFallBackvalues)))
                 .ForMember(p => p.Url, o => o.MapFrom(p => p is MenuItem ? ((MenuItem)p).Link.Url : GetUrl(p)))
                 .ForMember(p => p.Icon, o => o.MapFrom(p => p is MenuItem ? ((MenuItem)p).Icon : ""))
                 .ForMember(p => p.Children, o => o.Ignore());
@@ -113,15 +122,21 @@ namespace Crolow.Core.Startup.Profiles
         {
             CreateMap<HeaderRollup, HeaderRollupModel>()
                 .ForMember(p => p.Image, o => o.MapFrom(p => GetMediaUrl(p.Image)))
+                .ForMember(p => p.ImageLogo, o => o.MapFrom(p => GetMediaUrl(p.ImageLogo)))
+                .ForMember(p => p.ImageTitle, o => o.MapFrom(p => GetMediaUrl(p.ImageTitle)))
                 .ForMember(p => p.Items, o => o.Ignore());
+        }
 
-
+        private void RegisterProductModels()
+        {
         }
         private void RegisterCards()
         {
-            CreateMap<GridCard, CardItemModel>()
-                .ForMember(p => p.CardType, o => o.MapFrom(p => "Default"))
-                .ForMember(p => p.Image, o => o.MapFrom(p => GetMediaCropUrl(p.Image)));
+
+            CreateMap<Link, LinkModel>()
+                .ForMember(p => p.Title, o => o.MapFrom(p => p.Name))
+                .ForMember(p => p.Url, o => o.MapFrom(p => p.Url))
+                .ForMember(p => p.Target, o => o.MapFrom(p => p.Target));
 
             CreateMap<GridCards, CardsModel>()
                 .ForMember(p => p.Items, o => o.MapFrom(p => p.Cards));
@@ -130,9 +145,16 @@ namespace Crolow.Core.Startup.Profiles
                 .ForMember(p => p.Items, o => o.Ignore());
 
 
-            CreateMap<BasicCard, CardItemModel>()
+            CreateMap<GridCard, CardItemModel>()
                 .ForMember(p => p.CardType, o => o.MapFrom(p => "Default"))
-                .ForMember(p => p.Image, o => o.MapFrom(p => GetMediaCropUrl(p.Image)));
+                .ForMember(p => p.Image, o => o.MapFrom(p => GetCardMediaUrl(p.Image)))
+                .ForMember(p => p.Links, o => o.MapFrom(p => p.Links));
+
+
+            CreateMap<BasicCard, CardItemModel>()
+                .ForMember(p => p.OriginId, o => o.MapFrom(p => p.Id))
+                .ForMember(p => p.OriginVersion, o => o.MapFrom(p => p.UpdateDate.Ticks))
+                .ForMember(p => p.Image, o => o.MapFrom(p => GetCardMediaUrl(p.Image)));
         }
         private string GetUrl(IPublishedContent content)
         {
@@ -142,6 +164,11 @@ namespace Crolow.Core.Startup.Profiles
         private string GetMediaUrl(MediaWithCrops content)
         {
             return content.Url(mode: UrlMode.Default) ?? "";
+        }
+
+        private string GetCardMediaUrl(MediaWithCrops content)
+        {
+            return $"{content.Url(mode: UrlMode.Default) ?? ""}?{cardImageSize}";
         }
 
         private string GetMediaCropUrl(IPublishedContent content, string property, string[] altProperties, UrlMode urlMode)

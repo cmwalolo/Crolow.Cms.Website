@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Crolow.Cms.Core.Models.Umbraco;
 using Crolow.Cms.Core.Models.ViewModel.Navigation;
 using Microsoft.AspNetCore.Mvc;
 using Umbraco.Cms.Core.Models.PublishedContent;
@@ -22,7 +23,7 @@ namespace Crolow.Cms.Core.Components.PageElements
             this.urlProvider = urlProvider;
         }
 
-        public async Task<IViewComponentResult> InvokeAsync(IPublishedContent content, object item = null)
+        public async Task<IViewComponentResult> InvokeAsync(IPublishedContent content, PageElementComponent item = null)
         {
             var breadcrumb = new MenuItemModel();
             var current = content;

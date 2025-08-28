@@ -1,0 +1,16 @@
+﻿@using Crolow.Cms.Core.HtmlHelpers.Dictionary
+@using Crolow.Cms.Core.Models.Umbraco
+@using Crolow.Cms.Core.Models.ViewModel.Navigation;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<IBasePage>
+@{
+    if(!Model.Description.IsNullOrWhiteSpace())
+    { 
+        @Model.Description
+    } else
+    {
+        if (!string.IsNullOrEmpty(Model.Summary))
+        {
+            <p>@Model.Summary</p>
+        }   
+    }
+}

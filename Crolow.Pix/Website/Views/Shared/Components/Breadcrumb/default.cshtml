@@ -2,6 +2,7 @@
 @using Crolow.Cms.Core.Models.ViewModel.Navigation;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<MenuItemModel>
 @{
+    <h1>@Model.Children.Last().PageTitle</h1>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             @foreach (var card in Model.Children.Take(Model.Children.Count-1))

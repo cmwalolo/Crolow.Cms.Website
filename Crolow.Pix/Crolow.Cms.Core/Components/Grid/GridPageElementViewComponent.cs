@@ -10,14 +10,14 @@ using Umbraco.Cms.Core.Web;
 namespace Crolow.Cms.Core.Components.Grid
 {
     [ViewComponent(Name = "gridPageElementComponent")]
-    public class GridPageElementComponent : ViewComponent
+    public class GridPageElementViewComponent : ViewComponent
     {
         protected IMapper mapper;
         protected IUmbracoContextFactory contextFactory;
         protected IPublishedUrlProvider urlProvider;
         protected IViewComponentHelper viewComponentHelper;
 
-        public GridPageElementComponent(IMapper mapper, IUmbracoContextFactory contextFactory, IPublishedUrlProvider urlProvider, IViewComponentInvokerFactory invokerFactory, IViewComponentSelector viewComponentSelector, IViewComponentHelper viewComponentHelper)
+        public GridPageElementViewComponent(IMapper mapper, IUmbracoContextFactory contextFactory, IPublishedUrlProvider urlProvider, IViewComponentInvokerFactory invokerFactory, IViewComponentSelector viewComponentSelector, IViewComponentHelper viewComponentHelper)
         {
             this.mapper = mapper;
             this.contextFactory = contextFactory;

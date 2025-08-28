@@ -1,0 +1,132 @@
+
+.rollup {
+  margin-bottom: 30px;
+}
+
+.banner {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+
+  img.banner-bg {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  img.banner-logo {
+    position: absolute;
+    left: 20%;
+    height: 80%;
+    display: block;
+    top: 10%;
+  }
+
+  img.banner-title {
+    position: absolute;
+    left: 45%;
+    height: 90px;
+    display: block;
+    top: 0%;
+    height: 50%;
+  }
+
+
+  .punchline-container {
+    position: absolute;
+    bottom: 0%;
+    right: 10%;
+    width: 50%;
+    height: 50%;
+    padding: 1rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-sizing: border-box;
+  }
+  /* Punchlines */
+  .punchline {
+    font-size: clamp(0.8rem, 2.3vw, 2.5rem); /* min, preferred, max */
+    position: absolute; /* So they stack in same place */
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    font-style: italic;
+    background: -webkit-gradient(linear, left top, right top, from(#ffffff), to(rgb(234, 189, 84)));
+    background: linear-gradient(45deg, #ffffff, rgb(234, 189, 84));
+    -webkit-background-clip: text; /* Needed for Safari and Chrome */
+    -webkit-text-fill-color: transparent; /* Makes the text show the background */
+  }
+}
+
+.banner-long {
+  position: relative;
+  overflow: hidden;
+  padding-right: calc(var(--bs-gutter-x));
+  padding-left: calc(var(--bs-gutter-x));
+  background-image: url(../images/waaw-banner-long.png);
+  background-size: 100% 100%;
+  min-height:80px;
+
+  img.banner-bg {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    min-height:80px;
+  }
+
+  img.banner-logo {
+    z-index: 10;
+    position: absolute;
+    left: 10%;
+    height: 95%;
+    display: block;
+    top: 0%;
+  }
+
+  img.banner-title {
+    z-index: 10;
+    position: absolute;
+    left: 45%;
+    height: 90px;
+    display: block;
+    top: 10%;
+    height: 50%;
+  }
+
+  .punchline-container {
+    position: absolute;
+    bottom: 0%;
+    right: 5%;
+    width: 70%;
+    height: 100%;
+    padding: 1rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-sizing: border-box;
+  }
+  /* Punchlines */
+  .punchline {
+    font-size: clamp(1.0rem, 1.8vw, 2rem); /* min, preferred, max */
+    position: absolute; /* So they stack in same place */
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    font-style: italic;
+    background: -webkit-gradient(linear, left top, right top, from(#ffffff), to(rgb(234, 189, 84)));
+    background: linear-gradient(45deg, #ffffff, rgb(234, 189, 84));
+    -webkit-background-clip: text; /* Needed for Safari and Chrome */
+    -webkit-text-fill-color: transparent; /* Makes the text show the background */
+  }
+}
+
+
+.punchline.show {
+  display: block;
+  opacity: 1;
+}

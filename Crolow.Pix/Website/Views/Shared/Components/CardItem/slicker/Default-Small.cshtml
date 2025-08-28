@@ -1,0 +1,35 @@
+﻿@using Crolow.Cms.Core.HtmlHelpers.Dictionary
+@using Crolow.Cms.Core.Models.ViewModel.Cards;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<CardItemModel>
+
+@if (Model != null)
+{
+    <div class="card h-100">
+        @if (!string.IsNullOrEmpty(Model.Title))
+        {
+            <h4 class="card-header">@Model.Title</h4>
+        }
+        @if (Model.Image is not null)
+        {
+
+            <div class="card-img p-0">
+                <img loading="lazy" class="card-img-top" src="@Model.Image" />
+            </div>
+        }
+
+        <div style="height:41px;"></div>
+
+        @if (Model.Links.Any())
+        {
+            <div class="card-footer">
+                @foreach (var link in Model.Links)
+                {
+                    <a href="@link.Url" class="btn btn-sm btn-primary">
+                        @Dictionary[link.Title]
+                    </a>
+                }
+            </div>
+        }
+
+    </div>
+}

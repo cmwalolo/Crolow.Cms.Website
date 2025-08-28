@@ -1,0 +1,28 @@
+﻿@using Crolow.Cms.Core.HtmlHelpers.Dictionary
+@using Crolow.Cms.Core.Models.ViewModel.Cards;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<CardsModel>
+
+@if (Model != null)
+{
+    var x = Model.Items.Count;
+
+    if (!string.IsNullOrEmpty(Model.Title))
+    {
+        <h2>@(Model.Title)</h2>
+    }
+    if (!string.IsNullOrEmpty(Model.SubTitle))
+    {
+        <p>@Model.SubTitle</p>
+    }
+    if (!Model.Body.IsNullOrWhiteSpace())
+    {
+        @Model.Body
+    }
+
+    foreach (var card in Model.Items)
+    {
+        <div class="col">
+            @await Component.InvokeAsync("CardItem", new { content = UmbracoContext.PublishedRequest.PublishedContent, item = card as CardItemModel })
+        </div>
+    }
+}

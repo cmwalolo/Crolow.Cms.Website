@@ -1,18 +1,20 @@
-﻿using Crolow.Cms.Core.Models.ViewModel.Cards;
+﻿using Crolow.Cms.Core.Models.Enumerations;
+using Crolow.Cms.Core.Models.ViewModel.Cards;
 using Umbraco.Extensions;
 
 namespace Crolow.Cms.Core.Models.Umbraco
 {
     partial class ProductPage : ICardItemModelBuilder
     {
-        public CardItemModel GetCardItemModel()
+        public CardItemModel GetCardItemModel(string parentTemplate = "", CardType type = CardType.Default, CardSize size = CardSize.Small)
         {
             var product = this.Product as Product;
 
-            return new CardItemModel
+            return new ProductCardItemModel()
             {
-                CardType = Enumerations.CardType.ProductCard,
-                CardTypeSize = Enumerations.CardSize.Small,
+                ParentTemplate = parentTemplate,
+                CardType = CardType.ProductCard,
+                CardTypeSize = size,
                 Title = product.Name,
                 Summary = product.Summary,
                 Description = product.Description,

@@ -53,7 +53,6 @@ document.querySelectorAll('.menu-item').forEach(btn => {
   });
 });
 
-
 document.addEventListener("DOMContentLoaded", () => {
   const punchlines = document.querySelectorAll(".punchline");
   let currentIndex = -1;
@@ -82,111 +81,35 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-//$(document).ready(function () {
-//  $('.slicker').not('.slick-initialized').slick({
-//    dots: true,
-//    infinite: true,
-//    centerMode: true,
-//    slidesToShow: 4,
-//    slidesToScroll: 1,
-//    responsive: [
-//      {
-//        breakpoint: 768,
-//        settings: {
-//          arrows: true,
-//          centerMode: true,
-//          centerPadding: '40px',
-//          slidesToShow: 1
-//        }
-//      },
-//      {
-//        breakpoint: 480,
-//        settings: {
-//          arrows: false,
-//          centerMode: true,
-//          centerPadding: '40px',
-//          slidesToShow: 1
-//        }
-//      }
-//    ]
-//  });
-//});
+$(function () {
+  document.querySelectorAll('form').forEach(form => {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
 
-//$(function () {
+      const params = new URLSearchParams();
 
-//  function equalizeAll() {
-//    $(".slicker").each(function () {
-//      equalize($(this));
-//    });
-//  }
+      // serialize text, hidden, select inputs
+      form.querySelectorAll('input[type="text"], input[type="hidden"], select').forEach(el => {
+        if (el.value) params.set(el.name, el.value);
+      });
 
-//  function equalize($slider) {
-//    // work only with original slides (skip clones)
-//    if ($slider === undefined) {
-//      console.log("Equalizing heights for", $slider);
-//      return;
-//    }
-//    const $cards = $slider.find(".slick-slide:not(.slick-cloned) .card, > .card");
-//    if (!$cards.length) return;
+      // serialize all multi-checkboxes as CSV automatically
+      const checkboxGroups = {};
+      form.querySelectorAll('input[type="checkbox"]:checked').forEach(cb => {
+        if (!checkboxGroups[cb.name]) checkboxGroups[cb.name] = [];
+        checkboxGroups[cb.name].push(cb.value);
+      });
 
-//    let max = 0;
-//    $cards.each(function () {
-//      const h = $(this).outerHeight(); // include padding/border
-//      if (h > max) max = h;
-//    });
+      for (const [name, values] of Object.entries(checkboxGroups)) {
+        params.set(name, values.join(','));
+      }
 
-//    // inject CSS rule with !important, but scoped to this slider
-//    const styleId = "equalize-heights-style-" + $slider.index();
-//    let styleTag = document.getElementById(styleId);
-//    if (!styleTag) {
-//      styleTag = document.createElement("style");
-//      styleTag.id = styleId;
-//      document.head.appendChild(styleTag);
-//    }
-//    // scope to this slicker only
-//    styleTag.textContent = `#${$slider.attr("id")} .card { height: ${max}px !important; }`;
-//  }
-
-//  // resize/orientation changes
-//  let resizeTimer;
-//  $(window).on("resize orientationchange", function () {
-//    clearTimeout(resizeTimer);
-//    resizeTimer = setTimeout(equalizeAll, 100);
-//  });
-
-//  $(".slicker").each(function () {
-//    const $slider = $(this);
-
-//    // read slides config
-//    const slides = $slider.data("slides");
-//    const slideArray = (slides && slides.trim())
-//      ? slides.split(',').map(x => parseInt(x.trim(), 10))
-//      : [4, 3, 2, 1];
-
-//    // initialize slick
-//    $slider.slick({
-//      slidesToShow: slideArray[0],
-//      slidesToScroll: 1,
-//      infinite: true,
-//      adaptiveHeight: false,
-//      responsive: [
-//        { breakpoint: 992, settings: { slidesToShow: slideArray[1] } },
-//        { breakpoint: 768, settings: { slidesToShow: slideArray[2] } },
-//        { breakpoint: 576, settings: { slidesToShow: slideArray[3] } }
-//      ]
-//    });
-
-//    $slider.on("init reInit setPosition afterChange", function () { equalize($slider); });
-//    setTimeout(equalize, 0);
-
-//    // re-equalize when images load
-//    $slider.find("img").each(function () {
-//      if (!this.complete) {
-//        $(this).one("load error", function () { equalize($slider); });
-//      }
-//    });
-//  });
-//});
+      // redirect or ajax
+      const url = `${form.action}?${params.toString()}`;
+      window.location.href = url;
+    });
+  });
+});
 
 $(function () {
 

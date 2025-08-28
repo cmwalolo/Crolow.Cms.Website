@@ -13,7 +13,7 @@
         {
 
             <div class="card-img p-0">
-                <img class="card-img-top" src="@Model.Image" />
+                <img loading="lazy" class="card-img-top" src="@Model.Image" />
             </div>
         }
 
@@ -29,7 +29,7 @@
                     {
                         <h5>@Model.Description</h5>
                     }
-                    <div class="d-none d-md-block">
+                    <div class="">
                         @if (Model.Summary != null)
                         {
                             @Model.Summary

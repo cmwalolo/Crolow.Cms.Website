@@ -39,6 +39,14 @@ namespace Crolow.Cms.Core.Components.Grid
         private async Task<CardsModel?> GetItemsAsync(GridCards card)
         {
             var item = mapper.Map<CardsModel>(card);
+            if (card.PropagateTemplate)
+            {
+                foreach (var i in item.Items)
+                {
+                    i.ParentTemplate = card.Template;
+                }
+            }
+
             return item;
         }
     }

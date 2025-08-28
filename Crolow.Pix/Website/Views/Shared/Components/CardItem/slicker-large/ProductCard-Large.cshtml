@@ -1,0 +1,128 @@
+﻿@using Crolow.Cms.Core.HtmlHelpers.Dictionary
+@using Crolow.Cms.Core.Models.ViewModel.Cards;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<CardItemModel>
+
+@if (Model != null)
+{
+    <div class="card h-100">
+        @if (!string.IsNullOrEmpty(Model.Title))
+        {
+            <h4 class="card-header">@Model.Title</h4>
+        }
+        <div class="d-none d-md-block">
+            <div class="row">
+                @if (Model.Image is not null)
+                {
+                    <div class="col-md-6 col-lg-4 p-3">
+                        <img loading="lazy" src="@Model.Image" class="card-img img-fluid" alt="">
+                    </div>
+                }
+                <div class="col-md-6 col-lg-8 d-flex flex-column p-3">
+                    <div class="d-flex justify-content-between align-items-center p-1 mb-2">
+
+                        @if (Model.Description.IsNullOrWhiteSpace() && string.IsNullOrEmpty(Model.Summary))
+                        {
+                            <div style="height:41px;"></div>
+                        }
+                        else
+                        {
+                            <div class="text">
+                                @if (!string.IsNullOrEmpty(Model.Summary))
+
+                                {
+                                    <h5>@Model.Summary</h5>
+                                }
+                                @if (Model.Description != null)
+                                {
+                                    <div>
+                                        @Model.Description
+                                    </div>
+                                }
+                            </div>
+                        }
+
+                        @if (!string.IsNullOrEmpty(Model.Price))
+                        {
+                            <div class="price mr-4 text-end">
+
+                                <span>€ @Model.Price</span>
+                            </div>
+                        }
+                    </div>
+                    @if (Model?.Links.Any() ?? false)
+                    {
+                        <div class="mt-auto d-flex justify-content-end gap-2">
+                            @foreach (var link in Model.Links)
+                            {
+                                <a href="@link.Url" class="btn home-btn-large btn-primary">
+                                    @Dictionary[link.Title]
+                                </a>
+
+                            }
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="d-block d-md-none">
+            <div class="row g-0">
+                @if (Model.Image is not null)
+                {
+                    <div class="col-6">
+                        <img loading ="lazy" src="@Model.Image" class="card-img img-fluid" alt="">
+                    </div>
+                }
+                <div class="col-6 d-flex flex-column p-3">
+                    <div class="d-flex justify-content-between align-items-center p-1 mb-2">
+                        <div class="text">
+                            @if (!string.IsNullOrEmpty(Model.Summary))
+
+                            {
+                                <h5>@Model.Summary</h5>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 p-1">
+                    <div class="d-flex justify-content-between align-items-center py-4 p-1 mb-2">
+
+                        @if (Model.Description.IsNullOrWhiteSpace() && string.IsNullOrEmpty(Model.Summary))
+                        {
+                            <div style="height:41px;"></div>
+                        }
+                        else
+                        {
+                            <div class="text d-flex flex-column justify-content-center">
+                                @if (Model.Description != null)
+                                {
+                                    @Model.Description
+                                }
+                            </div>
+                        }
+
+                        @if (!string.IsNullOrEmpty(Model.Price))
+                        {
+                            <div class="price mr-4 text-end">
+
+                                <span>€ @Model.Price</span>
+                            </div>
+                        }
+                    </div>
+                    @if (Model?.Links.Any() ?? false)
+                    {
+                        <div class="mt-auto d-flex justify-content-end gap-2">
+                            @foreach (var link in Model.Links)
+                            {
+                                <a href="@link.Url" class="btn home-btn-large btn-primary">
+                                    @Dictionary[link.Title]
+                                </a>
+
+                            }
+                        </div>
+                    }
+                </div>
+
+            </div>
+        </div>
+    </div>
+}

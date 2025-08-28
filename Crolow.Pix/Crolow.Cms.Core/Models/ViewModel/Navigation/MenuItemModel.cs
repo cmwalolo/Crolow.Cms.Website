@@ -6,7 +6,7 @@
         {
             Children = new List<MenuItemModel>();
         }
-
+        public string PageTitle { get; set; }
         public string Title { get; set; }
         public string Url { get; set; }
         public List<MenuItemModel> Children { get; set; }

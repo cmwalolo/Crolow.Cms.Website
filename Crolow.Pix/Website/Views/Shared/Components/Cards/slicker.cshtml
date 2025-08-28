@@ -15,7 +15,11 @@
         <p>@Model.SubTitle</p>
     }
 
-    @Model.Body
+    if (!Model.Body.IsNullOrWhiteSpace())
+    {
+        @Model.Body
+    }
+
 
     <div id="slicker-@id" class="slicker align-items-stretch">
         @{

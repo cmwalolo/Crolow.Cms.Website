@@ -50,12 +50,38 @@ namespace Crolow.Cms.Core.Models.Umbraco
 		// properties
 
 		///<summary>
-		/// Image
+		/// CssClass
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.1.1+cd47bdb")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("image")]
-		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops Image => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "image");
+		[ImplementPropertyType("cssClass")]
+		public virtual string CssClass => this.Value<string>(_publishedValueFallback, "cssClass");
+
+
+        ///<summary>
+        /// Image Logo
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.1.1+cd47bdb")]
+        [global::System.Diagnostics.CodeAnalysis.MaybeNull]
+        [ImplementPropertyType("image")]
+        public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops Image => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "image");
+
+        
+		///<summary>
+        /// Image Logo
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.1.1+cd47bdb")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("imageLogo")]
+		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops ImageLogo => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "imageLogo");
+
+		///<summary>
+		/// Image Title
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.1.1+cd47bdb")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("imageTitle")]
+		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops ImageTitle => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "imageTitle");
 
 		///<summary>
 		/// Items

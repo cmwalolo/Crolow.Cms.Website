@@ -58,6 +58,13 @@ namespace Crolow.Cms.Core.Models.Umbraco
 		public virtual global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent> Cards => this.Value<global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent>>(_publishedValueFallback, "cards");
 
 		///<summary>
+		/// Propagate template
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.1.1+cd47bdb")]
+		[ImplementPropertyType("propagateTemplate")]
+		public virtual bool PropagateTemplate => this.Value<bool>(_publishedValueFallback, "propagateTemplate");
+
+		///<summary>
 		/// Template
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.1.1+cd47bdb")]
